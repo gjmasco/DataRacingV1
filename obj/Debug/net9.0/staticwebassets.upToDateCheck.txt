@@ -1,0 +1,2 @@
+D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\wwwroot\favicon.ico
+wwwroot\favicon.ico

@@ -1,0 +1,128 @@
+﻿@page "/Account/Manage"
+
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Identity
+@using DataRacingV1.Data
+
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject IdentityUserAccessor UserAccessor
+@inject IdentityRedirectManager RedirectManager
+
+<PageTitle>Profile</PageTitle>
+
+<MudText Typo="Typo.h6" GutterBottom="true">Profile</MudText>
+
+<StatusMessage />
+
+<EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
+    <DataAnnotationsValidator />
+
+    <MudGrid>
+        <MudItem md="12">
+            <MudStaticTextField Value="@username" Label="Username" Disabled="true" Placeholder="Please choose your username." />
+        </MudItem>
+        <MudItem md="12">
+            <MudStaticTextField For="@(() => Input.PhoneNumber)" @bind-Value="Input.PhoneNumber"
+                                Label="Phone Number" HelperText="Please enter your phone number."
+                                UserAttributes="@(new() { { "autocomplete", "tel-national" } } )" />
+        </MudItem>
+        <MudItem md="12">
+            <MudStaticTextField For="@(() => Input.Address)" @bind-Value="Input.Address"
+                                Label="Address" Placeholder="123 Main St"
+                                UserAttributes="@(new() { { "autocomplete", "address-line1" } } )" />
+        </MudItem>
+        <MudItem md="12">
+            <MudStaticTextField For="@(() => Input.City)" @bind-Value="Input.City"
+                                Label="City" Placeholder="City"
+                                UserAttributes="@(new() { { "autocomplete", "address-level2" } } )" />
+        </MudItem>
+        <MudItem md="12">
+            <MudStaticTextField For="@(() => Input.Province)" @bind-Value="Input.Province"
+                                Label="Province" Placeholder="Province"
+                                UserAttributes="@(new() { { "autocomplete", "address-level1" } } )" />
+        </MudItem>
+        <MudItem md="12">
+            <MudStaticTextField For="@(() => Input.Country)" @bind-Value="Input.Country"
+                                Label="Country" Placeholder="Country"
+                                UserAttributes="@(new() { { "autocomplete", "country" } } )" />
+        </MudItem>
+        <MudItem md="12">
+            <MudStaticButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" FormAction="FormAction.Submit">Save</MudStaticButton>
+        </MudItem>
+    </MudGrid>
+</EditForm>
+
+@code {
+    private ApplicationUser user = default!;
+    private string? username;
+    private string? phoneNumber;
+
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        user = await UserAccessor.GetRequiredUserAsync(HttpContext);
+        username = await UserManager.GetUserNameAsync(user);
+        phoneNumber = await UserManager.GetPhoneNumberAsync(user);
+
+        Input.PhoneNumber ??= phoneNumber;
+        Input.Address = user.Address;
+        Input.City = user.City;
+        Input.Province = user.Province;
+        Input.Country = user.Country;
+    }
+
+    private async Task OnValidSubmitAsync()
+    {
+        if (Input.PhoneNumber != phoneNumber)
+        {
+            var setPhoneResult = await UserManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+            if (!setPhoneResult.Succeeded)
+            {
+                RedirectManager.RedirectToCurrentPageWithStatus("Error: Failed to set phone number.", HttpContext);
+            }
+        }
+
+        user.Address = Input.Address;
+        user.City = Input.City;
+        user.Province = Input.Province;
+        user.Country = Input.Country;
+
+        var updateResult = await UserManager.UpdateAsync(user);
+        if (!updateResult.Succeeded)
+        {
+            RedirectManager.RedirectToCurrentPageWithStatus("Error: Failed to update profile.", HttpContext);
+        }
+
+        await SignInManager.RefreshSignInAsync(user);
+        RedirectManager.RedirectToCurrentPageWithStatus("Your profile has been updated", HttpContext);
+    }
+
+    private sealed class InputModel
+    {
+        [Phone]
+        [Display(Name = "Phone number")]
+        public string? PhoneNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; } = "";
+
+        [Required]
+        [Display(Name = "City")]
+        public string City { get; set; } = "";
+
+        [Required]
+        [Display(Name = "Province")]
+        public string Province { get; set; } = "";
+
+        [Required]
+        [Display(Name = "Country")]
+        public string Country { get; set; } = "";
+    }
+}

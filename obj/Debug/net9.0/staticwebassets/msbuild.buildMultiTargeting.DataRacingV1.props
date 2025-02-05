@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\DataRacingV1.props" />
+</Project>
