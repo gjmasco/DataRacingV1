@@ -3,6 +3,7 @@ using DataRacingV1.Components.Account;
 using DataRacingV1.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
 
@@ -41,6 +42,7 @@ builder.Services.AddIdentityCore<ApplicationUser>(options =>
         options.Password.RequireUppercase = false;
         options.Password.RequiredLength = 8;
     })
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddSignInManager()
     .AddDefaultTokenProviders();
@@ -48,6 +50,36 @@ builder.Services.AddIdentityCore<ApplicationUser>(options =>
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
 var app = builder.Build();
+
+
+
+// Create roles and assign them to users
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+    string[] roleNames = { "Admin", "Editor", "Client" };
+    foreach (var roleName in roleNames)
+    {
+        if (!await roleManager.RoleExistsAsync(roleName))
+        {
+            await roleManager.CreateAsync(new IdentityRole(roleName));
+        }
+    }
+
+    // Assign roles to users (example)
+    var adminUser = await userManager.FindByEmailAsync("guille_masco@hotmail.com");
+    if (adminUser != null)
+    {
+        await userManager.AddToRoleAsync(adminUser, "Admin");
+    }
+}
+
+
+
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

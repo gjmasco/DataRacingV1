@@ -48,6 +48,9 @@
                                 UserAttributes="@(new() { { "autocomplete", "country" } } )" />
         </MudItem>
         <MudItem md="12">
+            <MudText Typo="Typo.body1" GutterBottom="true">Nivel de Acceso: @string.Join(", ", roles)</MudText>
+        </MudItem>
+        <MudItem md="12">
             <MudStaticButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" FormAction="FormAction.Submit">Save</MudStaticButton>
         </MudItem>
     </MudGrid>
@@ -57,6 +60,7 @@
     private ApplicationUser user = default!;
     private string? username;
     private string? phoneNumber;
+    private IList<string> roles = new List<string>();
 
     [CascadingParameter]
     private HttpContext HttpContext { get; set; } = default!;
@@ -69,6 +73,7 @@
         user = await UserAccessor.GetRequiredUserAsync(HttpContext);
         username = await UserManager.GetUserNameAsync(user);
         phoneNumber = await UserManager.GetPhoneNumberAsync(user);
+        roles = await UserManager.GetRolesAsync(user);
 
         Input.PhoneNumber ??= phoneNumber;
         Input.Address = user.Address;
