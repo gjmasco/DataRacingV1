@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3tJEM9dtR+kkzBxPrE8Yf130aWLvki0t3AV8LN1S8ko=",
+  "Hash": "dHBTD2y7NhYcH/ziOxWdvj3wi8V83V/jBs4gQJVm49k=",
   "Source": "DataRacingV1",
   "BasePath": "_content/DataRacingV1",
   "Mode": "Default",
@@ -164,6 +164,27 @@
       "OriginalItemSpec": "C:\\Users\\Guille\\.nuget\\packages\\extensions.mudblazor.staticinput\\3.0.1\\staticwebassets\\NavigationObserver.js"
     },
     {
+      "Identity": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-nhgapyvssp.gz",
+      "SourceId": "DataRacingV1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/DataRacingV1",
+      "RelativePath": "Precios/lista#[.{fingerprint=nhgapyvssp}]?.csv.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\lista.csv",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "nulhpe88hs",
+      "Integrity": "IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\lista.csv"
+    },
+    {
       "Identity": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\favicon.ico",
       "SourceId": "DataRacingV1",
       "SourceType": "Discovered",
@@ -183,6 +204,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\lista.csv",
+      "SourceId": "DataRacingV1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\",
+      "BasePath": "_content/DataRacingV1",
+      "RelativePath": "Precios/lista#[.{fingerprint}]?.csv",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nhgapyvssp",
+      "Integrity": "++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Precios\\lista.csv"
     }
   ],
   "Endpoints": [
@@ -1027,6 +1069,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-b7CPHqpoIGsGVgOrEO+r2XPyaLrLUBwkA6R2jOMbS7M="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/lista.csv",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-nhgapyvssp.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000041757140"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23947"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/csv"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/lista.csv",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\lista.csv",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "222938"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/csv"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/lista.csv.gz",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-nhgapyvssp.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23947"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/csv"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/lista.nhgapyvssp.csv",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-nhgapyvssp.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000041757140"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23947"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/csv"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nhgapyvssp"
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/lista.csv"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/lista.nhgapyvssp.csv",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\lista.csv",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "222938"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/csv"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nhgapyvssp"
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/lista.csv"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/lista.nhgapyvssp.csv.gz",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-nhgapyvssp.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23947"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/csv"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nhgapyvssp"
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/lista.csv.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E="
         }
       ]
     }

@@ -1,2 +1,4 @@
 D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\wwwroot\favicon.ico
+D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\wwwroot\Precios\lista.csv
 wwwroot\favicon.ico
+wwwroot\Precios\lista.csv

@@ -1,0 +1,83 @@
+﻿@page "/usuarios"
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@using DataRacingV1.Data
+@attribute [Authorize(Roles = "Admin")]
+
+@inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> RoleManager
+
+<PageTitle>Usuarios</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Usuarios</MudText>
+
+<MudGrid>
+    <MudItem md="12">
+        <MudTable Items="users" Hover="true">
+            <HeaderContent>
+                <MudTh>Nombre</MudTh>
+                <MudTh>Email</MudTh>
+                <MudTh>Rol</MudTh>
+                <MudTh>Acciones</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd>@context.UserName</MudTd>
+                <MudTd>@context.Email</MudTd>
+                <MudTd>
+                    <MudSelect T="string" @bind-Value="context.SelectedRole">
+                        @foreach (var role in roles)
+                        {
+                            <MudSelectItem T="string" Value="@role">@role</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudTd>
+                <MudTd>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="() => SaveUserRole(context)">Guardar</MudButton>
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+    </MudItem>
+</MudGrid>
+
+@code {
+    private List<UserViewModel> users = new();
+    private List<string> roles = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var allUsers = UserManager.Users.ToList();
+        foreach (var user in allUsers)
+        {
+            var userRoles = await UserManager.GetRolesAsync(user);
+            users.Add(new UserViewModel
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+                Roles = userRoles.ToList(),
+                SelectedRole = userRoles.FirstOrDefault() ?? string.Empty
+            });
+        }
+
+        roles = RoleManager.Roles.Select(r => r.Name).ToList();
+    }
+
+    private async Task SaveUserRole(UserViewModel user)
+    {
+        var applicationUser = await UserManager.FindByNameAsync(user.UserName);
+        if (applicationUser != null)
+        {
+            var currentRoles = await UserManager.GetRolesAsync(applicationUser);
+            await UserManager.RemoveFromRolesAsync(applicationUser, currentRoles);
+            await UserManager.AddToRoleAsync(applicationUser, user.SelectedRole);
+        }
+    }
+
+    private class UserViewModel
+    {
+        public string UserName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public List<string> Roles { get; set; } = new();
+        public string SelectedRole { get; set; } = string.Empty;
+    }
+}

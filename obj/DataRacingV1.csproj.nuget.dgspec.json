@@ -51,6 +51,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[33.0.1, )"
+            },
             "Extensions.MudBlazor.StaticInput": {
               "target": "Package",
               "version": "[3.*, )"

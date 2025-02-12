@@ -9,6 +9,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="33.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.*" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.*" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.*" />
@@ -20,6 +21,12 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
+    <Folder Include="wwwroot\Precios\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="wwwroot\Precios\lista.csv" />
   </ItemGroup>
 
 </Project>

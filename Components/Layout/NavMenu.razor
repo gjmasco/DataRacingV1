@@ -8,6 +8,15 @@
     
     <MudNavLink Href="weather" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Weather</MudNavLink>
 
+    <MudNavLink Href="cotizador" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Cotizador</MudNavLink>
+
+    <AuthorizeView Roles="Admin">
+        <Authorized>
+            <MudNavLink Href="usuarios" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Usuarios</MudNavLink>
+        </Authorized>
+    </AuthorizeView>
+
+
     <MudNavLink Href="auth" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Lock">Auth Required</MudNavLink>
     <AuthorizeView>
         <Authorized>

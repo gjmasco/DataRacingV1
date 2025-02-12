@@ -159,3 +159,5 @@ D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\obj\Debug\net9.0\DataRacing
 D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\obj\Debug\net9.0\DataRacingV1.genruntimeconfig.cache
 D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\obj\Debug\net9.0\ref\DataRacingV1.dll
 D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\bin\Debug\net9.0\CsvHelper.dll
+D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\obj\Debug\net9.0\compressed\x19l0ssx5s-nhgapyvssp.gz

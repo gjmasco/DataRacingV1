@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "WhRUfBCDjas=",
+  "dgSpecHash": "HtpDVFLyNUQ=",
   "success": true,
   "projectFilePath": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\DataRacingV1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Guille\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Guille\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\Guille\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
     "C:\\Users\\Guille\\.nuget\\packages\\extensions.mudblazor.staticinput\\3.0.1\\extensions.mudblazor.staticinput.3.0.1.nupkg.sha512",
     "C:\\Users\\Guille\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Guille\\.nuget\\packages\\microsoft.aspnetcore.authorization\\9.0.1\\microsoft.aspnetcore.authorization.9.0.1.nupkg.sha512",

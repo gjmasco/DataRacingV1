@@ -195,6 +195,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Cotizador.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3RpemFkb3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -205,6 +209,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Usuarios.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc3Vhcmlvcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Weather.razor]
