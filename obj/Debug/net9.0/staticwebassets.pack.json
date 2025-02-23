@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcs.txt",
+      "PackagePath": "staticwebassets\\Precios\\dtcs.txt"
+    },
+    {
+      "Id": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcsespanol.txt",
+      "PackagePath": "staticwebassets\\Precios\\dtcsespanol.txt"
+    },
+    {
       "Id": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\lista.csv",
       "PackagePath": "staticwebassets\\Precios\\lista.csv"
     },

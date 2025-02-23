@@ -7,30 +7,40 @@
         public string MODELO { get; set; }
         public string VARIANTE { get; set; }
         public string MOTOR { get; set; }
-        public string ORI { get; set; }
-        public string MOD { get; set; }
-        public string GAIN { get; set; }
-        public string HP { get; set; }
-        public string RPM { get; set; }
-        public string OBD { get; set; }
-        public string STG { get; set; }
-        public string ACC { get; set; }
-        public string RON { get; set; }
-        public string VMX { get; set; }
-        public string CAT { get; set; }
-        public string EGR { get; set; }
-        public string DPF { get; set; }
-        public string IMM { get; set; }
-        public string SWR { get; set; }
-        public string MS { get; set; }
-        public string ADB { get; set; }
-        public string SS { get; set; }
-        public string PB { get; set; }
+        public float ORI { get; set; }
+        public float MOD { get; set; }
+        public float GAIN { get; set; }
+        public float HP { get; set; }
+        public float RPM { get; set; }
+        public float T_ORI { get; set; }
+        public float T_MOD { get; set; }
+        public bool OBD { get; set; }
+        public bool STG { get; set; }
+        public bool ACC { get; set; }
+        public bool RON { get; set; }
+        public bool VMX { get; set; }
+        public bool CAT { get; set; }
+        public bool EGR { get; set; }
+        public bool DPF { get; set; }
+        public bool IMM { get; set; }
+        public bool SWR { get; set; }
+        public bool MS { get; set; }
+        public bool ADB { get; set; }
+        public bool SS { get; set; }
+        public bool PB { get; set; }
         public string CAT2 { get; set; }
-        public string STG1 { get; set; }
-        public string STG2 { get; set; }
-        public string ONLY { get; set; }
-        public string COMBO { get; set; }
+        public int STG1 { get; set; }
+        public int STG2 { get; set; }
+        public int ONLY_J2 { get; set; }
+        public int COMBO_J2 { get; set; }
+        public int ONLY_J4 { get; set; }
+        public int COMBO_J4 { get; set; }
+        public int D_STG1 { get; set; }
+        public int D_STG2 { get; set; }
+        public int D_ONLY_J2 { get; set; }
+        public int D_COMBO_J2 { get; set; }
+        public int D_ONLY_J4 { get; set; }
+        public int D_COMBO_J4 { get; set; }
         public string KESS { get; set; }
         public string KTAG { get; set; }
         public string KESS3 { get; set; }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dHBTD2y7NhYcH/ziOxWdvj3wi8V83V/jBs4gQJVm49k=",
+  "Hash": "mMbTdKmQZ4rdI4D7EAVe574JdjqR8iRRpEe1q394puI=",
   "Source": "DataRacingV1",
   "BasePath": "_content/DataRacingV1",
   "Mode": "Default",
@@ -101,6 +101,48 @@
       "OriginalItemSpec": "C:\\Users\\Guille\\.nuget\\packages\\mudblazor\\8.2.0\\staticwebassets\\MudBlazor.min.js"
     },
     {
+      "Identity": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\fuvd4te8n4-hrp1voimu5.gz",
+      "SourceId": "DataRacingV1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/DataRacingV1",
+      "RelativePath": "Precios/dtcs#[.{fingerprint=hrp1voimu5}]?.txt.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcs.txt",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "5tmbvbvn68",
+      "Integrity": "x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcs.txt"
+    },
+    {
+      "Identity": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\nixkayle5k-0qastgock1.gz",
+      "SourceId": "DataRacingV1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/DataRacingV1",
+      "RelativePath": "Precios/dtcsespanol#[.{fingerprint=0qastgock1}]?.txt.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcsespanol.txt",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "s2eir5pesi",
+      "Integrity": "PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcsespanol.txt"
+    },
+    {
       "Identity": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\teskmn5458-2jeq8efc6q.gz",
       "SourceId": "DataRacingV1",
       "SourceType": "Discovered",
@@ -164,12 +206,12 @@
       "OriginalItemSpec": "C:\\Users\\Guille\\.nuget\\packages\\extensions.mudblazor.staticinput\\3.0.1\\staticwebassets\\NavigationObserver.js"
     },
     {
-      "Identity": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-nhgapyvssp.gz",
+      "Identity": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-v7b9mxzezd.gz",
       "SourceId": "DataRacingV1",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/DataRacingV1",
-      "RelativePath": "Precios/lista#[.{fingerprint=nhgapyvssp}]?.csv.gz",
+      "RelativePath": "Precios/lista#[.{fingerprint=v7b9mxzezd}]?.csv.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -178,8 +220,8 @@
       "RelatedAsset": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\lista.csv",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "nulhpe88hs",
-      "Integrity": "IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=",
+      "Fingerprint": "6vkkpazpwi",
+      "Integrity": "Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\lista.csv"
@@ -206,6 +248,48 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcs.txt",
+      "SourceId": "DataRacingV1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\",
+      "BasePath": "_content/DataRacingV1",
+      "RelativePath": "Precios/dtcs#[.{fingerprint}]?.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hrp1voimu5",
+      "Integrity": "rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Precios\\dtcs.txt"
+    },
+    {
+      "Identity": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcsespanol.txt",
+      "SourceId": "DataRacingV1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\",
+      "BasePath": "_content/DataRacingV1",
+      "RelativePath": "Precios/dtcsespanol#[.{fingerprint}]?.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0qastgock1",
+      "Integrity": "uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Precios\\dtcsespanol.txt"
+    },
+    {
       "Identity": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\lista.csv",
       "SourceId": "DataRacingV1",
       "SourceType": "Discovered",
@@ -220,8 +304,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "nhgapyvssp",
-      "Integrity": "++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=",
+      "Fingerprint": "v7b9mxzezd",
+      "Integrity": "9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Precios\\lista.csv"
@@ -1073,13 +1157,13 @@
       ]
     },
     {
-      "Route": "Precios/lista.csv",
-      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-nhgapyvssp.gz",
+      "Route": "Precios/dtcs.hrp1voimu5.txt",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\fuvd4te8n4-hrp1voimu5.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000041757140"
+          "Quality": "0.000097012029"
         }
       ],
       "ResponseHeaders": [
@@ -1089,15 +1173,611 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23947"
+          "Value": "10307"
         },
         {
           "Name": "ETag",
-          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+          "Value": "\"x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hrp1voimu5"
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcs.txt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcs.hrp1voimu5.txt",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcs.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "56745"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hrp1voimu5"
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcs.txt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcs.hrp1voimu5.txt.gz",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\fuvd4te8n4-hrp1voimu5.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10307"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hrp1voimu5"
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcs.txt.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcs.txt",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\fuvd4te8n4-hrp1voimu5.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000097012029"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10307"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcs.txt",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcs.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "56745"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcs.txt.gz",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\fuvd4te8n4-hrp1voimu5.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10307"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.0qastgock1.txt",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\nixkayle5k-0qastgock1.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000085550518"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11688"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0qastgock1"
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcsespanol.txt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.0qastgock1.txt",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcsespanol.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73940"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0qastgock1"
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcsespanol.txt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.0qastgock1.txt.gz",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\nixkayle5k-0qastgock1.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11688"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0qastgock1"
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcsespanol.txt.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.txt",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\nixkayle5k-0qastgock1.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000085550518"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11688"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.txt",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\dtcsespanol.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73940"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.txt.gz",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\nixkayle5k-0qastgock1.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11688"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/lista.csv",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-v7b9mxzezd.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000045628764"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21915"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1117,13 +1797,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+          "Value": "W/\"9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+          "Value": "sha256-9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU="
         }
       ]
     },
@@ -1138,7 +1818,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "222938"
+          "Value": "204414"
         },
         {
           "Name": "Content-Type",
@@ -1146,11 +1826,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+          "Value": "\"9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1160,13 +1840,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+          "Value": "sha256-9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU="
         }
       ]
     },
     {
       "Route": "Precios/lista.csv.gz",
-      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-nhgapyvssp.gz",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-v7b9mxzezd.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1175,7 +1855,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23947"
+          "Value": "21915"
         },
         {
           "Name": "Content-Type",
@@ -1183,11 +1863,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+          "Value": "\"Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1205,18 +1885,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E="
+          "Value": "sha256-Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ="
         }
       ]
     },
     {
-      "Route": "Precios/lista.nhgapyvssp.csv",
-      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-nhgapyvssp.gz",
+      "Route": "Precios/lista.v7b9mxzezd.csv",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-v7b9mxzezd.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000041757140"
+          "Quality": "0.000045628764"
         }
       ],
       "ResponseHeaders": [
@@ -1226,15 +1906,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23947"
+          "Value": "21915"
         },
         {
           "Name": "ETag",
-          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+          "Value": "\"Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1254,13 +1934,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+          "Value": "W/\"9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "nhgapyvssp"
+          "Value": "v7b9mxzezd"
         },
         {
           "Name": "label",
@@ -1268,12 +1948,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+          "Value": "sha256-9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU="
         }
       ]
     },
     {
-      "Route": "Precios/lista.nhgapyvssp.csv",
+      "Route": "Precios/lista.v7b9mxzezd.csv",
       "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\Precios\\lista.csv",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1283,7 +1963,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "222938"
+          "Value": "204414"
         },
         {
           "Name": "Content-Type",
@@ -1291,11 +1971,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+          "Value": "\"9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1305,7 +1985,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "nhgapyvssp"
+          "Value": "v7b9mxzezd"
         },
         {
           "Name": "label",
@@ -1313,13 +1993,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+          "Value": "sha256-9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU="
         }
       ]
     },
     {
-      "Route": "Precios/lista.nhgapyvssp.csv.gz",
-      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-nhgapyvssp.gz",
+      "Route": "Precios/lista.v7b9mxzezd.csv.gz",
+      "AssetFile": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\obj\\Debug\\net9.0\\compressed\\x19l0ssx5s-v7b9mxzezd.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1328,7 +2008,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23947"
+          "Value": "21915"
         },
         {
           "Name": "Content-Type",
@@ -1336,11 +2016,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+          "Value": "\"Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1358,7 +2038,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "nhgapyvssp"
+          "Value": "v7b9mxzezd"
         },
         {
           "Name": "label",
@@ -1366,7 +2046,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E="
+          "Value": "sha256-Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ="
         }
       ]
     }

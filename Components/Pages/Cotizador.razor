@@ -1,4 +1,5 @@
 ﻿@page "/cotizador"
+@using DataRacingV1.Components.Dataracing
 @using DataRacingV1.Models;
 @using Microsoft.AspNetCore.Authorization;
 @using MudBlazor;
@@ -11,7 +12,6 @@
 <MudGrid>
     <MudItem xs="12" sm="12">
         <MudSelect T="string" Label="Tipo" @bind-Value="SelectedTipo">
-            
             @foreach (var tipo in Tipos)
             {
                 <MudSelectItem T="string" Value="@tipo">@tipo</MudSelectItem>
@@ -19,7 +19,7 @@
         </MudSelect>
     </MudItem>
     <MudItem xs="12" sm="12">
-        <MudSelect T="string" Label="Fabricante" @bind-Value="SelectedFabricante"  Disabled="@string.IsNullOrEmpty(SelectedTipo)">
+        <MudSelect T="string" Label="Fabricante" @bind-Value="SelectedFabricante" Disabled="@string.IsNullOrEmpty(SelectedTipo)">
             @foreach (var fabricante in Fabricantes)
             {
                 <MudSelectItem T="string" Value="@fabricante">@fabricante</MudSelectItem>
@@ -27,7 +27,7 @@
         </MudSelect>
     </MudItem>
     <MudItem xs="12" sm="12">
-        <MudSelect T="string" Label="Modelo" @bind-Value="SelectedModelo"  Disabled="@string.IsNullOrEmpty(SelectedFabricante)">
+        <MudSelect T="string" Label="Modelo" @bind-Value="SelectedModelo" Disabled="@string.IsNullOrEmpty(SelectedFabricante)">
             @foreach (var modelo in Modelos)
             {
                 <MudSelectItem T="string" Value="@modelo">@modelo</MudSelectItem>
@@ -44,7 +44,135 @@
     </MudItem>
 </MudGrid>
 
+@if (SelectedVehicle != null)
+{
+    <MudTable T="Vehicle" Items="new List<Vehicle> { SelectedVehicle }">
+        <HeaderContent>
+            <MudTh>TIPO</MudTh>
+            <MudTh>FABRICANTE</MudTh>
+            <MudTh>MODELO</MudTh>
+            <MudTh>VARIANTE</MudTh>
+            <MudTh>MOTOR</MudTh>
+            <MudTh>ORI</MudTh>
+            <MudTh>MOD</MudTh>
+            <MudTh>GAIN</MudTh>
+            <MudTh>HP</MudTh>
+            <MudTh>RPM</MudTh>
+            <MudTh>T_ORI</MudTh>
+            <MudTh>T_MOD</MudTh>
+            <MudTh>OBD</MudTh>
+            <MudTh>STG</MudTh>
+            <MudTh>ACC</MudTh>
+            <MudTh>RON</MudTh>
+            <MudTh>VMX</MudTh>
+            <MudTh>CAT</MudTh>
+            <MudTh>EGR</MudTh>
+            <MudTh>DPF</MudTh>
+            <MudTh>IMM</MudTh>
+            <MudTh>SWR</MudTh>
+            <MudTh>MS</MudTh>
+            <MudTh>ADB</MudTh>
+            <MudTh>SS</MudTh>
+            <MudTh>PB</MudTh>
+            <MudTh>STG1</MudTh>
+            <MudTh>STG2</MudTh>
+            <MudTh>ONLY_J2</MudTh>
+            <MudTh>COMBO_J2</MudTh>
+            <MudTh>ONLY_J4</MudTh>
+            <MudTh>COMBO_J4</MudTh>
+            <MudTh>D_STG1</MudTh>
+            <MudTh>D_STG2</MudTh>
+            <MudTh>D_ONLY_J2</MudTh>
+            <MudTh>D_COMBO_J2</MudTh>
+            <MudTh>D_ONLY_J4</MudTh>
+            <MudTh>D_COMBO_J4</MudTh>
+            <MudTh>KESS</MudTh>
+            <MudTh>KTAG</MudTh>
+            <MudTh>KESS3</MudTh>
+            <MudTh>DFOX</MudTh>
+            <MudTh>FLEX</MudTh>
+            <MudTh>BITBOX</MudTh>
+            <MudTh>FOTO1</MudTh>
+            <MudTh>FOTO2</MudTh>
+            <MudTh>FOTO3</MudTh>
+            <MudTh>FOTO4</MudTh>
+            <MudTh>NOTAS_ESPECIALES</MudTh>
+            <MudTh>ID</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.TIPO</MudTd>
+            <MudTd>@context.FABRICANTE</MudTd>
+            <MudTd>@context.MODELO</MudTd>
+            <MudTd>@context.VARIANTE</MudTd>
+            <MudTd>@context.MOTOR</MudTd>
+            <MudTd>@context.ORI</MudTd>
+            <MudTd>@context.MOD</MudTd>
+            <MudTd>@context.GAIN</MudTd>
+            <MudTd>@context.HP</MudTd>
+            <MudTd>@context.RPM</MudTd>
+            <MudTd>@context.T_ORI</MudTd>
+            <MudTd>@context.T_MOD</MudTd>
+            <MudTd>@context.OBD</MudTd>
+            <MudTd>@context.STG</MudTd>
+            <MudTd>@context.ACC</MudTd>
+            <MudTd>@context.RON</MudTd>
+            <MudTd>@context.VMX</MudTd>
+            <MudTd>@context.CAT</MudTd>
+            <MudTd>@context.EGR</MudTd>
+            <MudTd>@context.DPF</MudTd>
+            <MudTd>@context.IMM</MudTd>
+            <MudTd>@context.SWR</MudTd>
+            <MudTd>@context.MS</MudTd>
+            <MudTd>@context.ADB</MudTd>
+            <MudTd>@context.SS</MudTd>
+            <MudTd>@context.PB</MudTd>
+            <MudTd>@context.STG1</MudTd>
+            <MudTd>@context.STG2</MudTd>
+            <MudTd>@context.ONLY_J2</MudTd>
+            <MudTd>@context.COMBO_J2</MudTd>
+            <MudTd>@context.ONLY_J4</MudTd>
+            <MudTd>@context.COMBO_J4</MudTd>
+            <MudTd>@context.D_STG1</MudTd>
+            <MudTd>@context.D_STG2</MudTd>
+            <MudTd>@context.D_ONLY_J2</MudTd>
+            <MudTd>@context.D_COMBO_J2</MudTd>
+            <MudTd>@context.D_ONLY_J4</MudTd>
+            <MudTd>@context.D_COMBO_J4</MudTd>
+            <MudTd>@context.KESS</MudTd>
+            <MudTd>@context.KTAG</MudTd>
+            <MudTd>@context.KESS3</MudTd>
+            <MudTd>@context.DFOX</MudTd>
+            <MudTd>@context.FLEX</MudTd>
+            <MudTd>@context.BITBOX</MudTd>
+            <MudTd>@context.FOTO1</MudTd>
+            <MudTd>@context.FOTO2</MudTd>
+            <MudTd>@context.FOTO3</MudTd>
+            <MudTd>@context.FOTO4</MudTd>
+            <MudTd>@context.NOTAS_ESPECIALES</MudTd>
+            <MudTd>@context.ID</MudTd>
+        </RowTemplate>
+    </MudTable>
+
+
+
+    <TablaPotencia SelectedVehicle="@SelectedVehicle" />
+
+
+
+    <Cotiza SelectedVehicle="@SelectedVehicle" />
+
+
+
+}
+
 @code {
+
+
+
+
+
+
+
     private List<string> Tipos = new();
     private List<string> Fabricantes = new();
     private List<string> Modelos = new();
@@ -108,14 +236,11 @@
         }
     }
 
+    private Vehicle SelectedVehicle { get; set; }
+
     protected override void OnInitialized()
     {
-
-        {
-                Vehicles = CsvService.GetVehicles("Precios/lista.csv");
-                Tipos = Vehicles.Select(v => v.TIPO).Distinct().ToList();
-            };
-
+        Vehicles = CsvService.GetVehicles("Precios/lista.csv");
         Tipos = Vehicles.Select(v => v.TIPO).Distinct().ToList();
     }
 
@@ -157,6 +282,35 @@
 
     private void OnVarianteChanged(string value)
     {
-        // Handle variant change if needed
+        showvehicle();
+    }
+
+
+
+
+    public class Element
+    {
+        public string RowHeader { get; set; }
+        public string Column1 { get; set; }
+        public string Column2 { get; set; }
+        public string Column3 { get; set; }
+    }
+
+
+
+
+
+    private void showvehicle()
+    {
+        SelectedVehicle = Vehicles.FirstOrDefault(v => v.TIPO == SelectedTipo && v.FABRICANTE == SelectedFabricante && v.MODELO == SelectedModelo && v.VARIANTE == SelectedVariante);
+
+
+
+        StateHasChanged();
+
+
+
+
     }
 }
+

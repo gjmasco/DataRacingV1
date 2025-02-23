@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -27,6 +27,8 @@
 </div>
 
 @code {
+    private MudTheme _theme = new();
+    private bool _isDarkMode = true;
     private bool _drawerOpen = true;
 }
 

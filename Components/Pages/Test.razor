@@ -1,0 +1,39 @@
+﻿@page "/test"
+@using MudBlazor
+
+<MudPaper Class="d-flex justify-center" style="max-width: 400px; width: 100%;">
+    <div >
+        <MudTable Elevation="1" Bordered="true" Hover="true" Class="mud-width-full" Items="@Elements">
+            <HeaderContent>
+                <MudTh></MudTh>
+                <MudTh><strong><u>Original</u></strong></MudTh>
+                <MudTh><strong><u>Stage1</u></strong></MudTh>
+                <MudTh><strong><u>Gain</u></strong></MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel=""><strong>@context.RowHeader</strong></MudTd>
+                <MudTd DataLabel="Original">@context.Column1</MudTd>
+                <MudTd DataLabel="Stage1">@context.Column2</MudTd>
+                <MudTd DataLabel="Gain" Style="color: red;">@context.Column3</MudTd>
+            </RowTemplate>
+        </MudTable>
+    </div>
+</MudPaper>
+
+@code {
+
+
+    private List<Element> Elements = new List<Element>()
+    {
+        new Element { RowHeader = "Potencia", Column1 = "Data 1A", Column2 = "Data 1B", Column3 = "Data 1C" },
+        new Element { RowHeader = "Torque", Column1 = "Data 2A", Column2 = "Data 2B", Column3 = "Data 2C" }
+    };
+
+    public class Element
+    {
+        public string RowHeader { get; set; }
+        public string Column1 { get; set; }
+        public string Column2 { get; set; }
+        public string Column3 { get; set; }
+    }
+}

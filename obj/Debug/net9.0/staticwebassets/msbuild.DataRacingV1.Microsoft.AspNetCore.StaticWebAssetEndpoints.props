@@ -12,17 +12,41 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-8kNQh\u002BLErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"15086"},{"Name":"Content-Type","Value":"image/x-icon"},{"Name":"ETag","Value":"\u00228kNQh\u002BLErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA=\u0022"},{"Name":"Last-Modified","Value":"Wed, 05 Feb 2025 22:15:07 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DataRacingV1/Precios/dtcs.hrp1voimu5.txt">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Precios\dtcs.txt'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"hrp1voimu5"},{"Name":"integrity","Value":"sha256-rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE\u002Bs="},{"Name":"label","Value":"_content/DataRacingV1/Precios/dtcs.txt"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"56745"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE\u002Bs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 23 Feb 2025 23:09:39 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DataRacingV1/Precios/dtcs.txt">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Precios\dtcs.txt'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE\u002Bs="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"56745"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE\u002Bs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 23 Feb 2025 23:09:39 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DataRacingV1/Precios/dtcsespanol.0qastgock1.txt">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Precios\dtcsespanol.txt'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"0qastgock1"},{"Name":"integrity","Value":"sha256-uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk="},{"Name":"label","Value":"_content/DataRacingV1/Precios/dtcsespanol.txt"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"73940"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 23 Feb 2025 23:17:15 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DataRacingV1/Precios/dtcsespanol.txt">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Precios\dtcsespanol.txt'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"73940"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 23 Feb 2025 23:17:15 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DataRacingV1/Precios/lista.csv">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Precios\lista.csv'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002B\u002BIDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"222938"},{"Name":"Content-Type","Value":"text/csv"},{"Name":"ETag","Value":"\u0022\u002B\u002BIDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Feb 2025 21:54:32 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"204414"},{"Name":"Content-Type","Value":"text/csv"},{"Name":"ETag","Value":"\u00229bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=\u0022"},{"Name":"Last-Modified","Value":"Sun, 23 Feb 2025 22:17:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DataRacingV1/Precios/lista.nhgapyvssp.csv">
+    <StaticWebAssetEndpoint Include="_content/DataRacingV1/Precios/lista.v7b9mxzezd.csv">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Precios\lista.csv'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"nhgapyvssp"},{"Name":"integrity","Value":"sha256-\u002B\u002BIDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="},{"Name":"label","Value":"_content/DataRacingV1/Precios/lista.csv"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"222938"},{"Name":"Content-Type","Value":"text/csv"},{"Name":"ETag","Value":"\u0022\u002B\u002BIDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Feb 2025 21:54:32 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"v7b9mxzezd"},{"Name":"integrity","Value":"sha256-9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU="},{"Name":"label","Value":"_content/DataRacingV1/Precios/lista.csv"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"204414"},{"Name":"Content-Type","Value":"text/csv"},{"Name":"ETag","Value":"\u00229bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=\u0022"},{"Name":"Last-Modified","Value":"Sun, 23 Feb 2025 22:17:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

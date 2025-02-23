@@ -3,13 +3,174 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "Precios/lista.csv",
-      "AssetFile": "Precios/lista.csv.gz",
+      "Route": "Precios/dtcs.hrp1voimu5.txt",
+      "AssetFile": "Precios/dtcs.txt.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000041757140"
+          "Quality": "0.000097012029"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10307"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hrp1voimu5"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s="
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcs.txt"
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcs.hrp1voimu5.txt",
+      "AssetFile": "Precios/dtcs.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "56745"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hrp1voimu5"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s="
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcs.txt"
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcs.hrp1voimu5.txt.gz",
+      "AssetFile": "Precios/dtcs.txt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10307"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hrp1voimu5"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs="
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcs.txt.gz"
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcs.txt",
+      "AssetFile": "Precios/dtcs.txt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000097012029"
         }
       ],
       "ResponseHeaders": [
@@ -27,23 +188,23 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23947"
+          "Value": "10307"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/csv"
+          "Value": "text/plain"
         },
         {
           "Name": "ETag",
-          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+          "Value": "\"x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+          "Value": "W/\"rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
         },
         {
           "Name": "Vary",
@@ -53,7 +214,442 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+          "Value": "sha256-rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcs.txt",
+      "AssetFile": "Precios/dtcs.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "56745"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rbclKNf5xb8osuwbK5yQeDgOyFHEkPHDA5LYvMkSE+s="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcs.txt.gz",
+      "AssetFile": "Precios/dtcs.txt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10307"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:09:39 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-x3xXuQx9jW3oXC4ixgfeV4XPlip5tiU1a78oZ5SWeHs="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.0qastgock1.txt",
+      "AssetFile": "Precios/dtcsespanol.txt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000085550518"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11688"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0qastgock1"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk="
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcsespanol.txt"
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.0qastgock1.txt",
+      "AssetFile": "Precios/dtcsespanol.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73940"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0qastgock1"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk="
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcsespanol.txt"
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.0qastgock1.txt.gz",
+      "AssetFile": "Precios/dtcsespanol.txt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11688"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0qastgock1"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I="
+        },
+        {
+          "Name": "label",
+          "Value": "Precios/dtcsespanol.txt.gz"
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.txt",
+      "AssetFile": "Precios/dtcsespanol.txt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000085550518"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11688"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.txt",
+      "AssetFile": "Precios/dtcsespanol.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "73940"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uN2tlbz8Af79PHKD1yRcxGdysiatfqKONSvtvplEFMk="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/dtcsespanol.txt.gz",
+      "AssetFile": "Precios/dtcsespanol.txt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11688"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 23:17:15 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-PKnVaslm3e/krwf8QvEh8lPUoRei6epS38f22RPUK2I="
+        }
+      ]
+    },
+    {
+      "Route": "Precios/lista.csv",
+      "AssetFile": "Precios/lista.csv.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000045628764"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21915"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/csv"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU="
         }
       ]
     },
@@ -72,7 +668,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "222938"
+          "Value": "204414"
         },
         {
           "Name": "Content-Type",
@@ -80,17 +676,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+          "Value": "\"9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+          "Value": "sha256-9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU="
         }
       ]
     },
@@ -113,7 +709,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23947"
+          "Value": "21915"
         },
         {
           "Name": "Content-Type",
@@ -121,11 +717,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+          "Value": "\"Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
         },
         {
           "Name": "Vary",
@@ -135,18 +731,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E="
+          "Value": "sha256-Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ="
         }
       ]
     },
     {
-      "Route": "Precios/lista.nhgapyvssp.csv",
+      "Route": "Precios/lista.v7b9mxzezd.csv",
       "AssetFile": "Precios/lista.csv.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000041757140"
+          "Quality": "0.000045628764"
         }
       ],
       "ResponseHeaders": [
@@ -164,7 +760,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23947"
+          "Value": "21915"
         },
         {
           "Name": "Content-Type",
@@ -172,15 +768,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+          "Value": "\"Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+          "Value": "W/\"9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
         },
         {
           "Name": "Vary",
@@ -190,11 +786,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "nhgapyvssp"
+          "Value": "v7b9mxzezd"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+          "Value": "sha256-9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU="
         },
         {
           "Name": "label",
@@ -203,7 +799,7 @@
       ]
     },
     {
-      "Route": "Precios/lista.nhgapyvssp.csv",
+      "Route": "Precios/lista.v7b9mxzezd.csv",
       "AssetFile": "Precios/lista.csv",
       "Selectors": [],
       "ResponseHeaders": [
@@ -217,7 +813,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "222938"
+          "Value": "204414"
         },
         {
           "Name": "Content-Type",
@@ -225,21 +821,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8=\""
+          "Value": "\"9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "nhgapyvssp"
+          "Value": "v7b9mxzezd"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-++IDtyeL2y9WFrZCyjdYD9gkeP49DCo6ALRa2Mpe9I8="
+          "Value": "sha256-9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU="
         },
         {
           "Name": "label",
@@ -248,7 +844,7 @@
       ]
     },
     {
-      "Route": "Precios/lista.nhgapyvssp.csv.gz",
+      "Route": "Precios/lista.v7b9mxzezd.csv.gz",
       "AssetFile": "Precios/lista.csv.gz",
       "Selectors": [],
       "ResponseHeaders": [
@@ -266,7 +862,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23947"
+          "Value": "21915"
         },
         {
           "Name": "Content-Type",
@@ -274,11 +870,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E=\""
+          "Value": "\"Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 21:54:32 GMT"
+          "Value": "Sun, 23 Feb 2025 22:17:08 GMT"
         },
         {
           "Name": "Vary",
@@ -288,11 +884,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "nhgapyvssp"
+          "Value": "v7b9mxzezd"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-IUZSIk5dCgXmtoZMyMbBYG5Awemj0NLkKRznteFLu9E="
+          "Value": "sha256-Xsi6NbLPx5DAt/PHQ0tigQBRIn09gPkkLh7e0YPt8MQ="
         },
         {
           "Name": "label",
