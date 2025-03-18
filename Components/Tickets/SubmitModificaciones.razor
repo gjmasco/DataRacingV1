@@ -1,0 +1,124 @@
+﻿@using DataRacingV1.Components.Dataracing
+@using DataRacingV1.Models;
+@using Microsoft.AspNetCore.Authorization;
+@using MudBlazor;
+@inject CsvService CsvService;
+@attribute [Authorize]
+
+@using System.ComponentModel.DataAnnotations
+
+<MudForm @ref="_form" @bind-IsValid="@success">
+<MudPaper Style = "margin-top: 45px; margin-bottom:60px; padding: 10px;">
+
+<MudPaper Class="d-flex flex-column mud-width-full" style=" margin-bottom: 10px; margin-top: 20px; height: 200px">
+    <div class="d-flex align-items-center" style="padding: 8px; @(modificacionescontainer.StageInstance.Selected ? "background-color: green;" : "")">
+        <MudSelect Class="d-flex" T="string" Label="Seleccionar Stage" Value="@modificacionescontainer.StageInstance.Seleccion" ValueChanged="@(e => OnStageChanged(e))" Variant="Variant.Text" Dense="true" style="width: 260px;">
+            @foreach (var option in modificacionescontainer.StageInstance.Options)
+                    {
+                        <MudSelectItem T="string" Value="@option">@option</MudSelectItem>
+                    }
+                </MudSelect>
+
+            </div>
+            <MudText Typo="Typo.body2" style="padding: 8px; min-height:50px">@modificacionescontainer.StageInstance.Descripcion</MudText>
+            <MudText Typo="Typo.body2" style="align-self:end; margin-top:10px; margin-right:0px; padding: 40px;">Costo: $ @modificacionescontainer.StageInstance.Costo</MudText>
+        </MudPaper>
+
+
+
+        <MudPaper Class="d-flex mud-width-full" style=" width: 100%;">
+            <div>
+                <MudTable Elevation="1" Bordered="true" Hover="true" Style="width:100%" Items="@modificacionescontainer.ModificacionesList">
+                    <HeaderContent>
+                        <MudTh style="width:140px"></MudTh>
+                        <MudTh style="width:180px"><strong><u>Selección</u></strong></MudTh>
+                        <MudTh style="width:68px"><strong><u>Costo</u></strong></MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+
+                        <MudTd DataLabel="">
+                            <MudTooltip Text="@context.Descripcion">
+                                <span><strong>@context.Nombre</strong></span>
+                                @if (!string.IsNullOrEmpty(context.Descripcion))
+                                {
+                                    <MudIconButton Icon="@Icons.Material.Outlined.Info" Color="Color.Primary" Size="Size.Small" />
+                                }
+                            </MudTooltip>
+                        </MudTd>
+                        <MudTd DataLabel="Selección" class="flex-fill" Style="@(context.Selected ? "background-color: green;" : "")">
+                            <MudSelect T="string" Value="@context.Seleccion" ValueChanged="@(e => OnModificacionChanged(context, e))" Variant="Variant.Text" Dense="true">
+                                @foreach (var option in context.Options)
+                                {
+                                    <MudSelectItem T="string" Value="@option">@option</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudTd>
+                        <MudTd DataLabel="Costo" class="fixed-width">@context.Costo</MudTd>
+                    </RowTemplate>
+                    <FooterContent>
+                        <MudTd></MudTd>
+                        <MudTd><strong>Total</strong></MudTd>
+                        <MudTd class="fixed-width"><strong>@TotalCost</strong></MudTd>
+                    </FooterContent>
+                </MudTable>
+            </div>
+        </MudPaper>
+
+    </MudPaper>
+</MudForm>
+
+<style>
+    .fixed-width1 {
+    width: 68px;
+    }
+
+    .flex-fill {
+    flex: 1;
+    }
+</style>
+
+@code {
+
+    private MudForm _form;
+    private bool success;
+
+    [Parameter]
+    public Vehicle SelectedVehicle { get; set; }
+
+    [Parameter]
+    public ModificacionesContainer modificacionescontainer { get; set; }
+
+
+    //ModificacionesContainer modificacionescontainer = new ModificacionesContainer();
+
+
+    private int TotalCost { get; set; }
+
+    //method when page is loaded
+    protected override void OnInitialized()
+    {
+        TotalCost = modificacionescontainer.changes(SelectedVehicle);
+        StateHasChanged();
+    }
+
+
+    private void OnModificacionChanged(Modificacion modificacion, string seleccion)
+    {
+        modificacion.Seleccion = seleccion;
+        TotalCost = modificacionescontainer.changes(SelectedVehicle);
+        StateHasChanged();
+        //submitmodificacionescontainer.StageInstance.Seleccion = modificacionescontainer.StageInstance.Seleccion;
+    }
+
+
+    private void OnStageChanged(string seleccion)
+    {
+        modificacionescontainer.StageInstance.Seleccion = seleccion;
+        TotalCost = modificacionescontainer.changes(SelectedVehicle);
+        StateHasChanged();
+        //submitmodificacionescontainer.StageInstance.Seleccion = modificacionescontainer.StageInstance.Seleccion;
+
+    }
+
+
+}

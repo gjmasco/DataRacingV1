@@ -1,0 +1,167 @@
+﻿@using DataRacingV1.Components.Dataracing
+@using DataRacingV1.Models;
+@using Microsoft.AspNetCore.Authorization;
+@using MudBlazor;
+@inject CsvService CsvService;
+@attribute [Authorize]
+
+<h3>Cascade Search with MudBlazor</h3>
+
+<MudGrid>
+    <MudItem xs="12" sm="12">
+        <MudSelect T="string" Label="Tipo" @bind-Value="SelectedTipo">
+            @foreach (var tipo in Tipos)
+            {
+                <MudSelectItem T="string" Value="@tipo">@tipo</MudSelectItem>
+            }
+        </MudSelect>
+    </MudItem>
+    <MudItem xs="12" sm="12">
+        <MudSelect T="string" Label="Fabricante" @bind-Value="SelectedFabricante" Disabled="@string.IsNullOrEmpty(SelectedTipo)">
+            @foreach (var fabricante in Fabricantes)
+            {
+                <MudSelectItem T="string" Value="@fabricante">@fabricante</MudSelectItem>
+            }
+        </MudSelect>
+    </MudItem>
+    <MudItem xs="12" sm="12">
+        <MudSelect T="string" Label="Modelo" @bind-Value="SelectedModelo" Disabled="@string.IsNullOrEmpty(SelectedFabricante)">
+            @foreach (var modelo in Modelos)
+            {
+                <MudSelectItem T="string" Value="@modelo">@modelo</MudSelectItem>
+            }
+        </MudSelect>
+    </MudItem>
+    <MudItem xs="12" sm="12">
+        <MudSelect T="string" Label="Variante" @bind-Value="SelectedVariante" Disabled="@string.IsNullOrEmpty(SelectedModelo)">
+            @foreach (var variante in Variantes)
+            {
+                <MudSelectItem T="string" Value="@variante">@variante</MudSelectItem>
+            }
+        </MudSelect>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter]
+    public EventCallback<Vehicle> OnVehicleSelected { get; set; }
+
+    private List<string> Tipos = new();
+    private List<string> Fabricantes = new();
+    private List<string> Modelos = new();
+    private List<string> Variantes = new();
+
+    private List<Vehicle> Vehicles = new();
+
+    private string _selectedTipo;
+    public string SelectedTipo
+    {
+        get => _selectedTipo;
+        set
+        {
+            if (_selectedTipo != value)
+            {
+                _selectedTipo = value;
+                OnTipoChanged(value);
+            }
+        }
+    }
+
+    private string _selectedFabricante;
+    public string SelectedFabricante
+    {
+        get => _selectedFabricante;
+        set
+        {
+            if (_selectedFabricante != value)
+            {
+                _selectedFabricante = value;
+                OnFabricanteChanged(value);
+            }
+        }
+    }
+
+    private string _selectedModelo;
+    public string SelectedModelo
+    {
+        get => _selectedModelo;
+        set
+        {
+            if (_selectedModelo != value)
+            {
+                _selectedModelo = value;
+                OnModeloChanged(value);
+            }
+        }
+    }
+
+    private string _selectedVariante;
+    public string SelectedVariante
+    {
+        get => _selectedVariante;
+        set
+        {
+            if (_selectedVariante != value)
+            {
+                _selectedVariante = value;
+                OnVarianteChanged(value);
+            }
+        }
+    }
+
+    private Vehicle SelectedVehicle { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Vehicles = CsvService.GetVehicles("Precios/lista.csv");
+        Tipos = Vehicles.Select(v => v.TIPO).Distinct().ToList();
+    }
+
+    private void OnTipoChanged(string value)
+    {
+        SelectedFabricante = null;
+        SelectedModelo = null;
+        SelectedVariante = null;
+
+        Fabricantes = Vehicles.Where(v => v.TIPO == value)
+                              .Select(v => v.FABRICANTE)
+                              .Distinct()
+                              .ToList();
+        Modelos.Clear();
+        Variantes.Clear();
+    }
+
+    private void OnFabricanteChanged(string value)
+    {
+        SelectedModelo = null;
+        SelectedVariante = null;
+
+        Modelos = Vehicles.Where(v => v.FABRICANTE == value && v.TIPO == SelectedTipo)
+                          .Select(v => v.MODELO)
+                          .Distinct()
+                          .ToList();
+        Variantes.Clear();
+    }
+
+    private void OnModeloChanged(string value)
+    {
+        SelectedVariante = null;
+
+        Variantes = Vehicles.Where(v => v.MODELO == value && v.FABRICANTE == SelectedFabricante && v.TIPO == SelectedTipo)
+                            .Select(v => v.VARIANTE)
+                            .Distinct()
+                            .ToList();
+    }
+
+    private void OnVarianteChanged(string value)
+    {
+        showvehicle();
+    }
+
+    private async void showvehicle()
+    {
+        SelectedVehicle = Vehicles.FirstOrDefault(v => v.TIPO == SelectedTipo && v.FABRICANTE == SelectedFabricante && v.MODELO == SelectedModelo && v.VARIANTE == SelectedVariante);
+        await OnVehicleSelected.InvokeAsync(SelectedVehicle);
+        StateHasChanged();
+    }
+}

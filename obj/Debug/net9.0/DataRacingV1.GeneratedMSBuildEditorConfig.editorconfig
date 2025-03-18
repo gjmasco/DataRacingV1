@@ -191,6 +191,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEYXRhcmFjaW5nXFRhYmxhUG90ZW5jaWEucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Dataracing/VehicleSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEYXRhcmFjaW5nXFZlaGljbGVTZWxlY3Rvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -207,24 +211,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3RpemFkb3IucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/CotizadorConComponentes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3RpemFkb3JDb25Db21wb25lbnRlcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Files.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGaWxlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Modificaciones.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RpZmljYWNpb25lcy5yYXpvcg==
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Submit.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdWJtaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Test.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUZXN0LnJhem9y
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/TicketDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUaWNrZXREZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Tickets.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUaWNrZXRzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Pages/Usuarios.razor]
@@ -237,6 +249,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Tickets/SubmitConfirm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUaWNrZXRzXFN1Ym1pdENvbmZpcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Tickets/SubmitFileUpload.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUaWNrZXRzXFN1Ym1pdEZpbGVVcGxvYWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Tickets/SubmitModificaciones.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUaWNrZXRzXFN1Ym1pdE1vZGlmaWNhY2lvbmVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Tickets/SubmitSelectVehicle.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUaWNrZXRzXFN1Ym1pdFNlbGVjdFZlaGljbGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/Tickets/SubmitVehicleInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUaWNrZXRzXFN1Ym1pdFZlaGljbGVJbmZvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Google Drive/VISUAL STUDIO/Mudblazor/DataRacingV1/Components/_Imports.razor]

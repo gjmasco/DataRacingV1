@@ -1,0 +1,397 @@
+﻿@page "/submit"
+@using DataRacingV1.Components.Tickets
+@using DataRacingV1.Models
+@using DataRacingV1.Components.Dataracing
+@using DataRacingV1.Models;
+@using DataRacingV1.Services
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity
+@using MudBlazor;
+@using YourNamespace.Models
+@inject CsvService CsvService;
+@inject TicketService TicketService
+@inject ILogger<Cotizador> Logger
+@inject ISnackbar Snackbar
+@inject UploadFileService UploadFileService
+@attribute [Authorize]
+
+<MudStepper @ref="stepper" Linear="true" ShowResetButton OnPreviewInteraction="OnPreviewInteraction" >
+    <ActionContent>
+    </ActionContent>
+
+
+
+
+    <ChildContent>
+
+
+        <MudStep Title="Vehículo" HasError="_step1error">
+        <ActionContent Context="stepper">
+        <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.FirstPage" Color="Color.Error" OnClick="@(() => stepper.ResetAsync())">RESET</MudButton>
+        <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.ArrowBack" Color="Color.Primary" OnClick="@(() => stepper.PreviousStepAsync())">ATRAS</MudButton>
+        <MudButton style="float: right;" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.ArrowForward" Color="Color.Primary" OnClick="@(() => stepper.NextStepAsync())">SIGUIENTE</MudButton>
+        </ActionContent>
+
+            <SubmitSelectVehicle @ref="submitSelectVehicleComponent" submitVehicle="ticket.VehicleDetails" />
+        </MudStep>
+
+
+        <MudStep Title="Lectura">
+        <ActionContent Context="stepper">
+        <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.FirstPage" Color="Color.Error" OnClick="@(() => stepper.ResetAsync())">RESET</MudButton>
+        <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.ArrowBack" Color="Color.Primary" OnClick="@(() => stepper.PreviousStepAsync())">ATRAS</MudButton>
+        <MudButton style="float: right;" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.ArrowForward" Color="Color.Primary" OnClick="@(() => stepper.NextStepAsync())">SIGUIENTE</MudButton>
+        </ActionContent>
+
+            <SubmitFileUpload UploadedFile="ticket.UploadedFile" />
+        </MudStep>
+
+
+        <MudStep Title="Info">
+                    <ActionContent Context="stepper">
+        <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.FirstPage" Color="Color.Error" OnClick="@(() => stepper.ResetAsync())">RESET</MudButton>
+        <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.ArrowBack" Color="Color.Primary" OnClick="@(() => stepper.PreviousStepAsync())">ATRAS</MudButton>
+        <MudButton style="float: right;" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.ArrowForward" Color="Color.Primary" OnClick="@(() => stepper.NextStepAsync())">SIGUIENTE</MudButton>
+        </ActionContent>
+
+            <SubmitVehicleInfo @ref="VehicleInfoComponent" VehicleData="ticket.VehicleInfo" />
+        </MudStep>
+
+
+        <MudStep Title="Modificaciones">
+                    <ActionContent Context="stepper">
+        <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.FirstPage" Color="Color.Error" OnClick="@(() => stepper.ResetAsync())">RESET</MudButton>
+        <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.ArrowBack" Color="Color.Primary" OnClick="@(() => stepper.PreviousStepAsync())">ATRAS</MudButton>
+        <MudButton style="float: right;" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.ArrowForward" Color="Color.Primary" OnClick="@(() => stepper.NextStepAsync())">SIGUIENTE</MudButton>
+        </ActionContent>
+
+            <SubmitModificaciones modificacionescontainer="ticket.ModificacionesDetails" SelectedVehicle="seleccionado"/>
+        </MudStep>
+
+
+        <MudStep Title="Confirmar">
+        <ActionContent Context="stepper">
+        <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.FirstPage" Color="Color.Error" OnClick="@(() => stepper.ResetAsync())">RESET</MudButton>
+        <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.ArrowBack" Color="Color.Primary" OnClick="@(() => stepper.PreviousStepAsync())">ATRAS</MudButton>
+        <MudButton style="float: right;" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send" Color="Color.Primary" OnClick="@(() => stepper.NextStepAsync())">ENVIAR!</MudButton>
+        </ActionContent>
+            <SubmitConfirm Tickets="ticket" />
+        </MudStep>
+
+
+    </ChildContent>
+
+    <CompletedContent>
+        <MudStack Row Class="ma-3">
+            <MudIcon Icon="@Icons.Material.Filled.Done" Color="Color.Success" />
+            <MudText>
+                You are checked-in, your ticket will be sent by email.
+            </MudText>
+        </MudStack>
+    </CompletedContent>
+</MudStepper>
+
+
+<style>
+
+</style>
+
+
+
+@code {
+
+    [Inject]
+    IDialogService DialogService { get; set; }
+
+    bool _step1error = false;
+    private MudStepper stepper;
+
+    private Ticket ticket = new Ticket();
+
+    private Vehicle seleccionado;
+    private List<Vehicle> Vehicles = new();
+    private SubmitSelectVehicle submitSelectVehicleComponent;
+    private SubmitVehicleInfo VehicleInfoComponent;
+
+
+
+
+    protected override void OnInitialized()
+    {
+        Vehicles = CsvService.GetVehicles("Precios/lista.csv");
+    }
+
+    private async Task OnPreviewInteraction(StepperInteractionEventArgs arg)
+    {
+        if (arg.Action == StepAction.Complete)
+        {
+            // occurs when clicking next
+            await ControlStepCompletion(arg);
+        }
+        else if (arg.Action == StepAction.Reset)
+        {
+            await ControlStepReset(arg);
+        }
+
+
+    }
+
+    private async Task ControlStepCompletion(StepperInteractionEventArgs arg)
+    {
+        switch (arg.StepIndex)
+        {
+            case 0:
+                if (string.IsNullOrEmpty(ticket.VehicleDetails.Tipo)){
+                    await DialogService.ShowMessageBox("Error", "Seleccione el Tipo de vehiculo", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+                if (string.IsNullOrEmpty(ticket.VehicleDetails.Fabricante)){
+                    await DialogService.ShowMessageBox("Error", "Seleccione el Fabricante del vehiculo", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+                if (string.IsNullOrEmpty(ticket.VehicleDetails.Modelo)){
+                    await DialogService.ShowMessageBox("Error", "Seleccione el Modelo del vehiculo", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+                if (string.IsNullOrEmpty(ticket.VehicleDetails.Variante)){
+                    await DialogService.ShowMessageBox("Error", "Seleccione la Variante del vehiculo", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+
+
+                //buscar el vehiculo en la lista de vehiculos, si no esta usar vehiculo custom
+
+                if (ticket.VehicleDetails.Manual)
+                {
+                    seleccionado.TIPO = ticket.VehicleDetails.Tipo;
+                    seleccionado.FABRICANTE = ticket.VehicleDetails.Fabricante;
+                    seleccionado.MODELO = ticket.VehicleDetails.Modelo;
+                    seleccionado.VARIANTE = ticket.VehicleDetails.Variante;
+                    seleccionado.ORI = ticket.VehicleDetails.Potencia;
+
+                    seleccionado.MOTOR = string.Empty;
+                    seleccionado.MOD = 0;
+                    seleccionado.GAIN = 0;
+                    seleccionado.HP = 0;
+                    seleccionado.RPM = 0;
+                    seleccionado.T_ORI = 0;
+                    seleccionado.T_MOD = 0;
+                    seleccionado.OBD = false;
+                    seleccionado.STG = false;
+                    seleccionado.ACC = false;
+                    seleccionado.RON = false;
+                    seleccionado.VMX = false;
+                    seleccionado.CAT = false;
+                    seleccionado.EGR = false;
+                    seleccionado.DPF = false;
+                    seleccionado.IMM = false;
+                    seleccionado.SWR = false;
+                    seleccionado.MS = false;
+                    seleccionado.ADB = false;
+                    seleccionado.SS = false;
+                    seleccionado.PB = false;
+                    seleccionado.CAT2 = string.Empty;
+                    seleccionado.STG1 = 0;
+                    seleccionado.STG2 = 0;
+                    seleccionado.ONLY_J2 = 0;
+                    seleccionado.COMBO_J2 = 0;
+                    seleccionado.ONLY_J4 = 0;
+                    seleccionado.COMBO_J4 = 0;
+                    seleccionado.D_STG1 = 0;
+                    seleccionado.D_STG2 = 0;
+                    seleccionado.D_ONLY_J2 = 0;
+                    seleccionado.D_COMBO_J2 = 0;
+                    seleccionado.D_ONLY_J4 = 0;
+                    seleccionado.D_COMBO_J4 = 0;
+                    seleccionado.KESS = string.Empty;
+                    seleccionado.KTAG = string.Empty;
+                    seleccionado.KESS3 = string.Empty;
+                    seleccionado.DFOX = string.Empty;
+                    seleccionado.FLEX = string.Empty;
+                    seleccionado.BITBOX = string.Empty;
+                    seleccionado.FOTO1 = string.Empty;
+                    seleccionado.FOTO2 = string.Empty;
+                    seleccionado.FOTO3 = string.Empty;
+                    seleccionado.FOTO4 = string.Empty;
+                    seleccionado.NOTAS_ESPECIALES = string.Empty;
+                    seleccionado.ID = string.Empty;
+
+
+
+
+                }
+                else
+                {
+                    try
+                    {
+                        seleccionado = Vehicles.FirstOrDefault(v => v.TIPO == ticket.VehicleDetails.Tipo && v.FABRICANTE == ticket.VehicleDetails.Fabricante && v.MODELO == ticket.VehicleDetails.Modelo && v.VARIANTE == ticket.VehicleDetails.Variante);
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.LogError(e, "Error al buscar el vehiculo seleccionado");
+                    }
+                }
+
+                //guarda seleccionado en el vehiculo del ticket
+                ticket.selectedVehicle = seleccionado;
+
+
+
+
+                break;
+
+            case 1:
+
+            /*
+                if (ticket.UploadedFile.File==null)
+                {
+                    await DialogService.ShowMessageBox("Error", "Debe Seleccionar el Archivo", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }*/
+                if (ticket.UploadedFile.Equipo == null)
+                {
+                    await DialogService.ShowMessageBox("Error", "Seleccione el Equipo", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+                if (ticket.UploadedFile.Archivo == null)
+                {
+                    await DialogService.ShowMessageBox("Error", "Seleccione el Tipo de Archivo", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+
+
+
+                break;
+
+            case 2:
+                // Handle step 2 completion
+                // Set Dominio to uppercase and remove spaces
+
+
+
+                if (string.IsNullOrEmpty(ticket.VehicleInfo.Dueno))
+                {
+                    await DialogService.ShowMessageBox("Error", "Introduzca el nombre del dueño", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+                if (ticket.VehicleInfo.Km<1)
+                {
+                    await DialogService.ShowMessageBox("Error", "Introduzca el kilometraje correcto", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+                if (string.IsNullOrEmpty(ticket.VehicleInfo.Dominio))
+                {
+                    await DialogService.ShowMessageBox("Error", "Introduzca el dominio correctamente", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+                if (ticket.VehicleInfo.Ano < 1)
+                {
+                    await DialogService.ShowMessageBox("Error", "Introduzca el año correctamente", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+                if (string.IsNullOrEmpty(ticket.VehicleInfo.Combustible))
+                {
+                    await DialogService.ShowMessageBox("Error", "Introduzca el tipo de combustible", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+                if (string.IsNullOrEmpty(ticket.VehicleInfo.Transmision))
+                {
+                    await DialogService.ShowMessageBox("Error", "Introduzca el tipo de transmision", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+                if (string.IsNullOrEmpty(ticket.VehicleInfo.Admision))
+                {
+                    await DialogService.ShowMessageBox("Error", "Introduzca el tipo de admision", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+                if (string.IsNullOrEmpty(ticket.VehicleInfo.Escape))
+                {
+                    await DialogService.ShowMessageBox("Error", "Introduzca el tipo de escape", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+
+
+
+                ticket.VehicleInfo.Dominio = ticket.VehicleInfo.Dominio.ToUpper().Replace(" ", "");
+                break;
+
+
+
+
+            case 3:
+                // Handle step 3 completion
+
+
+                //calculate the cost and save it in ticket.Cost
+                ticket.Cost = ticket.ModificacionesDetails.changes(seleccionado);
+                //select at least one modification
+
+
+                if ((ticket.Cost == 0) && ticket.ModificacionesDetails.StageInstance.Seleccion == "Sin Cambios")
+                {
+                    await DialogService.ShowMessageBox("Error", "Seleccione al menos una modificacion", yesText: "OK");
+                    arg.Cancel = true;
+                    break;
+                }
+
+
+
+
+
+
+
+                break;
+
+            case 4:
+
+                // Handle step 4 completion
+                SendTicket();
+                break;
+
+
+
+        }
+    }
+
+    private async Task ControlStepReset(StepperInteractionEventArgs arg)
+    {
+        ticket = new Ticket();
+
+    }
+
+    private async void SendTicket()
+    {
+        
+
+        try
+        {
+            
+
+            var uploadedFile = await UploadFileService.UploadFileAsync(ticket.UploadedFile);
+            await TicketService.AddTicketAsync(ticket);
+            Snackbar.Add("Ticket created successfully!", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error creating ticket");
+            Snackbar.Add("Error creating ticket. Please try again.", Severity.Error);
+        }
+    }
+
+}

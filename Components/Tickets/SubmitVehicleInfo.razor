@@ -1,0 +1,137 @@
+﻿@using DataRacingV1.Components.Dataracing
+@using DataRacingV1.Models;
+@using Microsoft.AspNetCore.Authorization;
+@using MudBlazor;
+@inject CsvService CsvService;
+@attribute [Authorize]
+
+@using System.ComponentModel.DataAnnotations
+@code{
+
+    public List<string> Combustibles { get; set; } = new List<string>
+            {
+                "95RON 'Super'",
+                "98RON 'Premium'",
+                "Diesel",
+                "Diesel EURO",
+                "Hibrido"
+            };
+
+    public List<string> Transmisiones { get; set; } = new List<string>
+            {
+                "Manual",
+                "DSG",
+                "ZF8 ZF9 ZF10",
+                "CVT",
+                "Tiptronic",
+                "Otras Automaticas"
+            };
+
+
+    public List<string> Admisiones { get; set; } = new List<string>
+            {
+                "Original",
+                "Filtro Alto Flujo de Panel",
+                "Kit de Admision Directa"
+                
+            };
+
+    public List<string> Escapes { get; set; } = new List<string>
+            {
+                "Original",
+                "Original sin Catalizador o DPF",
+                "Downpipe",
+                "Cut-back",
+                "Escape Completo"
+            };
+
+
+    
+        public List<int> Years { get; set; } = Enumerable.Range(1992, DateTime.Now.Year - 1991).Reverse().ToList();
+
+    
+
+
+
+}
+
+
+
+
+
+
+
+<MudForm @ref="_form" @bind-IsValid="@success">
+    <MudTextField @bind-Value="VehicleData.Dueno" Label="Nombre del Cliente" For="@(() => VehicleData.Dueno)" Required="true" />
+    <MudTextField @bind-Value="VehicleData.Km" Label="Kilometraje" For="@(() => VehicleData.Km)" Required="true" />
+    <MudTextField @bind-Value="VehicleData.Dominio" Label="Dominio" For="@(() => VehicleData.Dominio)" Required="true" />
+    
+    <MudSelect T="int" Label="Año" @bind-Value="VehicleData.Ano" For="@(() => VehicleData.Ano)" Required="true">
+        @foreach (var year in Years)
+        {
+            <MudSelectItem T="int" Value="@year">@year</MudSelectItem>
+        }
+    </MudSelect>
+
+    <MudSelect T="string" Label="Combustible" @bind-Value="VehicleData.Combustible" For="@(() => VehicleData.Combustible)" Required="true">
+        @foreach (var combustible in Combustibles)
+        {
+            <MudSelectItem T="string" Value="@combustible">@combustible</MudSelectItem>
+        }
+    </MudSelect>
+    <MudSelect T="string" Label="Transmision" @bind-Value="VehicleData.Transmision" For="@(() => VehicleData.Transmision)" Required="true">
+        @foreach (var transmision in Transmisiones)
+        {
+            <MudSelectItem T="string" Value="@transmision">@transmision</MudSelectItem>
+        }
+    </MudSelect>
+    <MudSelect T="string" Label="Admision" @bind-Value="VehicleData.Admision" For="@(() => VehicleData.Admision)" Required="true">
+        @foreach (var admision in Admisiones)
+        {
+            <MudSelectItem T="string" Value="@admision">@admision</MudSelectItem>
+        }
+    </MudSelect>
+    <MudSelect T="string" Label="Escape" @bind-Value="VehicleData.Escape" For="@(() => VehicleData.Escape)" Required="true">
+        @foreach (var escape in Escapes)
+        {
+            <MudSelectItem T="string" Value="@escape">@escape</MudSelectItem>
+        }
+    </MudSelect>
+
+    
+    <MudTextField @bind-Value="VehicleData.Comentarios" Label="Comentarios" For="@(() => VehicleData.Comentarios)" />
+</MudForm>
+    
+@code {
+    private MudForm _form;
+    private bool success;
+
+    [Parameter]
+    public VehicleInfo VehicleData { get; set; }
+
+    public class VehicleInfo
+    {
+        [Required]
+        public string Dueno { get; set; }
+        [Required]
+        public int Km { get; set; }
+        [Required]
+        public string Dominio { get; set; }
+        [Required]
+        public int Ano { get; set; }
+        [Required]
+        public string Combustible { get; set; }
+        [Required]
+        public string Transmision { get; set; }
+        [Required]
+        public string Admision { get; set; }
+        [Required]
+        public string Escape { get; set; }
+       
+        public string Comentarios { get; set; }
+
+        public List<string> DTCs { get; set; } = new List<string> ();
+
+
+    }
+}

@@ -1,0 +1,34 @@
+﻿@page "/vehicle-selection"
+@using DataRacingV1.Components.Dataracing
+@using DataRacingV1.Models;
+@using Microsoft.AspNetCore.Authorization;
+@using MudBlazor;
+@inject CsvService CsvService;
+@inject ILogger<Cotizador> Logger
+@attribute [Authorize]
+
+
+
+<h3>Select a Vehicle</h3>
+<VehicleSelector OnVehicleSelected="OnVehicleSelected" />
+
+@if (selectedVehicle != null)
+{
+    <TablaPotencia SelectedVehicle="selectedVehicle" />
+
+    <Cotiza SelectedVehicle="selectedVehicle" />
+
+    <Form1 />
+}
+
+
+
+
+@code {
+    private Vehicle selectedVehicle;
+
+    private void OnVehicleSelected(Vehicle vehicle)
+    {
+        selectedVehicle = vehicle;
+    }
+}

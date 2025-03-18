@@ -1,0 +1,53 @@
+﻿@page "/ticket/{ticketId:int}"
+@using DataRacingV1.Components.Tickets
+@inject TicketService TicketService
+@inject NavigationManager NavigationManager
+@code {
+    [Parameter]
+    public int ticketId { get; set; }
+
+    private TicketEntity ticket;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ticket = await TicketService.GetTicketByIdAsync(ticketId);
+    }
+}
+
+<h3>Ticket Details</h3>
+
+@if (ticket != null)
+{
+    <MudPaper Class="pa-4">
+        <MudText Typo="Typo.h6">Ticket Id: @ticket.Id</MudText>
+        <MudText Typo="Typo.h6">Client Id: @ticket.ClientId</MudText>
+        <MudText Typo="Typo.h6">Status: @ticket.Status</MudText>
+        <MudText Typo="Typo.h6">Cost: @ticket.Cost</MudText>
+        <MudText Typo="Typo.h6">Vehiculo Tipo: @ticket.VehiculoTipo</MudText>
+        <MudText Typo="Typo.h6">Vehiculo Fabricante: @ticket.VehiculoFabricante</MudText>
+        <MudText Typo="Typo.h6">Vehiculo Modelo: @ticket.VehiculoModelo</MudText>
+        <MudText Typo="Typo.h6">Vehiculo Variante: @ticket.VehiculoVariante</MudText>
+        <MudText Typo="Typo.h6">Vehiculo Potencia: @ticket.VehiculoPotencia</MudText>
+        <MudText Typo="Typo.h6">Vehiculo Manual: @ticket.VehiculoManual</MudText>
+        <MudText Typo="Typo.h6">Info Dueno: @ticket.InfoDueno</MudText>
+        <MudText Typo="Typo.h6">Info Km: @ticket.InfoKm</MudText>
+        <MudText Typo="Typo.h6">Info Dominio: @ticket.InfoDominio</MudText>
+        <MudText Typo="Typo.h6">Info Combustible: @ticket.InfoCombustible</MudText>
+        <MudText Typo="Typo.h6">Info Transmision: @ticket.InfoTransmision</MudText>
+        <MudText Typo="Typo.h6">Info Admision: @ticket.InfoAdmision</MudText>
+        <MudText Typo="Typo.h6">Info Escape: @ticket.InfoEscape</MudText>
+        <MudText Typo="Typo.h6">Info Comentarios: @ticket.InfoComentarios</MudText>
+        <MudText Typo="Typo.h6">Info DTCs: @ticket.InfoDTCs</MudText>
+        <MudText Typo="Typo.h6">File Equipo: @ticket.FileEquipo</MudText>
+        <MudText Typo="Typo.h6">File Archivo: @ticket.FileArchivo</MudText>
+    </MudPaper>
+}
+else
+{
+    <MudText Typo="Typo.h6">Loading...</MudText>
+}
+
+
+
+
+

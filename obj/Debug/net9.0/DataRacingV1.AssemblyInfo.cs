@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DataRacingV1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+252b2f9f93a0b9561d77920ca008ae4ad045b0dc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+051a7543149ec4b8b4a0713f1b876ecf900c3655")]
 [assembly: System.Reflection.AssemblyProductAttribute("DataRacingV1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DataRacingV1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

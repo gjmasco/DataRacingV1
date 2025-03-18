@@ -1,11 +1,14 @@
 using DataRacingV1.Components;
 using DataRacingV1.Components.Account;
 using DataRacingV1.Data;
+using DataRacingV1.Components.Tickets;
+using DataRacingV1.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +23,12 @@ builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
-
+builder.Services.AddDbContext<TicketDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<TicketService>(); // Register TicketService
+builder.Services.AddScoped<UploadFileService>(); // Register UploadFileService
+builder.Services.AddHttpContextAccessor(); // Register IHttpContextAccessor
+builder.Services.AddLogging(); // Add logging
 builder.Services.AddAuthentication(options =>
     {
         options.DefaultScheme = IdentityConstants.ApplicationScheme;
@@ -54,8 +62,6 @@ builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSe
 
 var app = builder.Build();
 
-
-
 // Create roles and assign them to users
 using (var scope = app.Services.CreateScope())
 {
@@ -78,11 +84,6 @@ using (var scope = app.Services.CreateScope())
         await userManager.AddToRoleAsync(adminUser, "Admin");
     }
 }
-
-
-
-
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

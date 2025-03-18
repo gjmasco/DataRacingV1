@@ -1,0 +1,142 @@
+@using DataRacingV1.Components.Dataracing
+@using DataRacingV1.Models;
+@using Microsoft.AspNetCore.Authorization;
+@using MudBlazor;
+@inject CsvService CsvService;
+@attribute [Authorize]
+@using FluentValidation
+@using Severity = MudBlazor.Severity
+@inject ISnackbar Snackbar
+
+@code{
+    public List<string> Equipos { get; set; } = new List<string>
+            {
+                "KESS3",
+                "KESSv2",
+                "KTAG",
+                "FLEX",
+                "AUTOVEI",
+                "PCM FLASH",
+                "CMD"
+            };
+    public List<string> Archivos { get; set; } = new List<string>
+            {
+                "LECTURA REAL OBD",
+                "LECTURA VIRTUAL",
+                "LECTURA BOOT-BENCH"
+            };
+}
+
+
+
+
+<MudCard>
+    <MudForm Model="@UploadedFile" @ref="@form" Validation="@(ValidationRules.ValidateValue)" ValidationDelay="0">
+        <MudCardContent>
+            <MudStack>
+                <MudTextField T="string" Label="Archivo Seleccionado" Value="@UploadedFile.File?.Name" ReadOnly="true" />
+
+                <MudGrid Justify="@Justify.FlexEnd"
+                         Spacing="1">
+                    <MudItem>
+                        <MudFileUpload @ref="@_fileUpload"
+                                       T="IBrowserFile"
+                                       For="@(() => UploadedFile.File)"
+                                       @bind-Files="UploadedFile.File"
+                                       OnFilesChanged="UploadFiles"
+                                       SuppressOnChangeWhenInvalid="SuppressOnChangeWhenInvalid">
+                            <ActivatorContent>
+                                <MudButton Variant="Variant.Filled"
+                                           Color="Color.Primary"
+                                           StartIcon="@Icons.Material.Filled.CloudUpload">
+                                    Subir Archivo
+                                </MudButton>
+                            </ActivatorContent>
+                        </MudFileUpload>
+                    </MudItem>
+                    <MudItem>
+                        <MudButton Variant="Variant.Filled"
+                                   Color="Color.Error"
+                                   StartIcon="@Icons.Material.Filled.Clear"
+                                   OnClick="@ClearAsync">
+                            Quitar Archivo
+                        </MudButton>
+                    </MudItem>
+                </MudGrid>
+            </MudStack>
+        </MudCardContent>
+    </MudForm>
+
+    <MudSelect T="string" Label="Equipo" @bind-Value="UploadedFile.Equipo" For="@(() => UploadedFile.Equipo)" Required="true">
+        @foreach (var equipo in Equipos)
+        {
+            <MudSelectItem T="string" Value="@equipo">@equipo</MudSelectItem>
+        }
+    </MudSelect>
+    <MudSelect T="string" Label="Archivo" @bind-Value="UploadedFile.Archivo" For="@(() => UploadedFile.Archivo)" Required="true">
+        @foreach (var archivo in Archivos)
+        {
+            <MudSelectItem T="string" Value="@archivo">@archivo</MudSelectItem>
+        }
+    </MudSelect>
+
+</MudCard>
+@code
+{
+
+    [Parameter]
+    public UploadedFileInfo UploadedFile { get; set; }
+
+
+    private MudForm form;
+    private bool SuppressOnChangeWhenInvalid;
+    private MudFileUpload<IBrowserFile> _fileUpload;
+    private FileModelFluentValidator ValidationRules = new();
+    private void UploadFiles(InputFileChangeEventArgs e)
+    {
+        //If SuppressOnChangeWhenInvalid is false, perform your validations here
+        Snackbar.Configuration.PositionClass = Defaults.Classes.Position.TopCenter;
+        Snackbar.Add($"This file has the extension {UploadedFile.File.Name.Split(".").Last()}", Severity.Info);
+        StateHasChanged();
+        //TODO upload the files to the server
+    }
+    public class FileModelFluentValidator : AbstractValidator<UploadedFileInfo>
+    {
+        public FileModelFluentValidator()
+        {
+
+            RuleFor(x => x.File)
+            .NotEmpty();
+            When(x => x.File != null, () =>
+            {
+                RuleFor(x => x.File.Size).LessThanOrEqualTo(10485760).WithMessage("The maximum file size is 10 MB");
+            });
+        }
+
+        public Func<object, string, Task<IEnumerable<string>>> ValidateValue => async (UploadedFile, propertyName) =>
+        {
+            var result = await ValidateAsync(ValidationContext<UploadedFileInfo>.CreateWithOptions((UploadedFileInfo)UploadedFile, x => x.IncludeProperties(propertyName)));
+            if (result.IsValid)
+                return Array.Empty<string>();
+            return result.Errors.Select(e => e.ErrorMessage);
+        };
+    }
+
+
+    private Task ClearAsync()
+        => _fileUpload?.ClearAsync() ?? Task.CompletedTask;
+
+    public class UploadedFileInfo
+    {
+        
+        public IBrowserFile File { get; set; }
+
+        public string Equipo { get; set; }
+
+        public string Archivo { get; set; }
+    }
+
+
+
+
+}

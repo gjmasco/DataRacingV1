@@ -1,5 +1,17 @@
 ﻿namespace DataRacingV1.Models
 {
+    public class SubmitVehicle
+    {
+        public string Tipo { get; set; }
+        public string Fabricante { get; set; }
+        public string Modelo { get; set; }
+        public string Variante { get; set; }
+        public int Potencia { get; set; }
+        public bool Manual { get; set; }
+    }
+
+
+
     public class Vehicle
     {
         public string TIPO { get; set; }

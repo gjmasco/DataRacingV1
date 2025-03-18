@@ -1,0 +1,114 @@
+﻿@using DataRacingV1.Components.Dataracing
+@using DataRacingV1.Models;
+@using Microsoft.AspNetCore.Authorization;
+@using MudBlazor;
+@inject CsvService CsvService;
+@attribute [Authorize]
+@using FluentValidation
+@using Severity = MudBlazor.Severity
+@using YourNamespace.Models
+@inject ISnackbar Snackbar
+@inject IJSRuntime JSRuntime
+
+@code {
+    public List<string> Equipos { get; set; } = new List<string>
+    {
+        "KESS3", "KESSv2", "KTAG", "FLEX", "AUTOVEI", "PCM FLASH", "CMD"
+    };
+    public List<string> Archivos { get; set; } = new List<string>
+    {
+        "LECTURA REAL OBD", "LECTURA VIRTUAL", "LECTURA BOOT-BENCH"
+    };
+}
+
+<MudCard>
+    <MudForm Model="@UploadedFile" @ref="@form" Validation="@(ValidationRules.ValidateValue)" ValidationDelay="0">
+        <MudCardContent>
+            <MudStack>
+                <MudTextField T="string" Label="Archivo Seleccionado" Value="@UploadedFile.FileName" ReadOnly="true" />
+
+                <MudGrid Justify="@Justify.FlexEnd" Spacing="1">
+                    <MudItem>
+                        <InputFile OnChange="UploadFiles" id="fileInput" style="display: none;" />
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.CloudUpload" OnClick="TriggerFileInput">
+                            Subir Archivo
+                        </MudButton>
+                    </MudItem>
+                    <MudItem>
+                        <MudButton Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.Clear" OnClick="Clear">
+                            Quitar Archivo
+                        </MudButton>
+                    </MudItem>
+                </MudGrid>
+            </MudStack>
+        </MudCardContent>
+    </MudForm>
+
+    <MudSelect T="string" Label="Equipo" @bind-Value="UploadedFile.Equipo" For="@(() => UploadedFile.Equipo)" Required="true">
+        @foreach (var equipo in Equipos)
+        {
+            <MudSelectItem T="string" Value="@equipo">@equipo</MudSelectItem>
+        }
+    </MudSelect>
+    <MudSelect T="string" Label="Archivo" @bind-Value="UploadedFile.Archivo" For="@(() => UploadedFile.Archivo)" Required="true">
+        @foreach (var archivo in Archivos)
+        {
+            <MudSelectItem T="string" Value="@archivo">@archivo</MudSelectItem>
+        }
+    </MudSelect>
+</MudCard>
+
+@code {
+    [Parameter]
+    public UploadedFileInfo UploadedFile { get; set; }
+
+    private MudForm form;
+    private FileModelFluentValidator ValidationRules = new();
+
+    private async Task UploadFiles(InputFileChangeEventArgs e)
+    {
+        if (e.File != null)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                await e.File.OpenReadStream().CopyToAsync(memoryStream);
+                UploadedFile.FileContent = memoryStream.ToArray();
+                UploadedFile.FileName = e.File.Name;
+            }
+            Snackbar.Configuration.PositionClass = Defaults.Classes.Position.TopCenter;
+            Snackbar.Add($"This file has the extension {UploadedFile.FileName.Split(".").Last()}", Severity.Info);
+        }
+    }
+
+    private void Clear()
+    {
+        UploadedFile.FileContent = null;
+        UploadedFile.FileName = null;
+    }
+
+    private async Task TriggerFileInput()
+    {
+        await JSRuntime.InvokeVoidAsync("eval", "document.getElementById('fileInput').click();");
+    }
+
+    public class FileModelFluentValidator : AbstractValidator<UploadedFileInfo>
+    {
+        public FileModelFluentValidator()
+        {
+            RuleFor(x => x.FileContent)
+                .NotEmpty();
+            When(x => x.FileContent != null, () =>
+            {
+                RuleFor(x => x.FileContent.Length).LessThanOrEqualTo(10485760).WithMessage("The maximum file size is 10 MB");
+            });
+        }
+
+        public Func<object, string, Task<IEnumerable<string>>> ValidateValue => async (UploadedFile, propertyName) =>
+        {
+            var result = await ValidateAsync(ValidationContext<UploadedFileInfo>.CreateWithOptions((UploadedFileInfo)UploadedFile, x => x.IncludeProperties(propertyName)));
+            if (result.IsValid)
+                return Array.Empty<string>();
+            return result.Errors.Select(e => e.ErrorMessage);
+        };
+    }
+}

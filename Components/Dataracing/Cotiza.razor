@@ -1,13 +1,29 @@
 ﻿@using DataRacingV1.Models
 @using MudBlazor
 
-<h3>Modificaciones</h3>
+
+
+<MudPaper Class="d-flex flex-column mud-width-full" style="max-width: 400px; width: 100%; margin-bottom: 10px; margin-top: 20px; height: 200px" >
+    <div class="d-flex align-items-center" style="padding: 8px; @(modificacionescontainer.StageInstance.Selected ? "background-color: green;" : "")">
+        <MudSelect Class="d-flex" T="string" Label="Seleccionar Stage" Value="@modificacionescontainer.StageInstance.Seleccion" ValueChanged="@(e => OnStageChanged(e))" Variant="Variant.Text" Dense="true" style="width: 260px;">
+            @foreach (var option in modificacionescontainer.StageInstance.Options)
+            {
+                <MudSelectItem T="string" Value="@option">@option</MudSelectItem>
+            }
+        </MudSelect>
+       
+    </div>
+    <MudText Typo="Typo.body2" style="padding: 8px; min-height:50px">@modificacionescontainer.StageInstance.Descripcion</MudText>
+    <MudText Typo="Typo.body2" style="align-self:end; margin-top:10px; margin-right:0px; padding: 40px;">Costo: $ @modificacionescontainer.StageInstance.Costo</MudText>
+</MudPaper>
+
+
 
 <MudPaper Class="d-flex mud-width-full" style="max-width: 400px; width: 100%;">
     <div>
-        <MudTable Elevation="1" Bordered="true" Hover="true" Style="width:100%" Items="@Modificaciones_">
+        <MudTable Elevation="1" Bordered="true" Hover="true" Style="width:100%" Items="@modificacionescontainer.ModificacionesList">
             <HeaderContent>
-                <MudTh style="width:80px"></MudTh>
+                <MudTh style="width:140px"></MudTh>
                 <MudTh style="width:180px"><strong><u>Selección</u></strong></MudTh>
                 <MudTh style="width:68px"><strong><u>Costo</u></strong></MudTh>
             </HeaderContent>
@@ -22,7 +38,7 @@
                         }
                     </MudTooltip>
                 </MudTd>
-                <MudTd DataLabel="Selección" class="flex-fill">
+                <MudTd DataLabel="Selección" class="flex-fill" Style="@(context.Selected ? "background-color: green;" : "")">
                     <MudSelect T="string" Value="@context.Seleccion" ValueChanged="@(e => OnModificacionChanged(context, e))" Variant="Variant.Text" Dense="true">
                         @foreach (var option in context.Options)
                         {
@@ -55,487 +71,31 @@
     [Parameter]
     public Vehicle SelectedVehicle { get; set; }
 
-    private List<Modificacion> Modificaciones_ = new List<Modificacion>()
-    {
-        new Modificacion { Nombre = "STAGE",Tipo = "Nafta, Diesel", Seleccion = "Sin Cambios", Descripcion = "Para Stage1+ en adelante necesita tener vaciado el DPF o catalizador. Para Stage2 en adelante necesita tener downpipe o multiple. Para Stage3 necesita cambio de turbo", Costo = 0, Options = new List<string> { "Sin Cambios", "Stage 1", "Stage 1+", "Stage 2", "Stage 2+", "Stage 3", "Volver Stock" } },
-        new Modificacion { Nombre = "DECAT",Tipo = "Nafta", Seleccion = "No", Descripcion = "", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "EGR-OFF",Tipo = "Diesel", Seleccion = "No", Descripcion = "", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "DPF-OFF",Tipo = "Diesel", Seleccion = "No", Descripcion = "", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "SCR-OFF",Tipo = "Diesel", Seleccion = "No", Descripcion = "", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "DTC-OFF",Tipo = "Nafta, Diesel", Seleccion = "No", Descripcion = "", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "FLAPS-OFF",Tipo = "Nafta, Diesel", Seleccion = "No", Descripcion = "", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "MAF DELETE",Tipo = "Nafta, Diesel", Seleccion = "No", Descripcion = "", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "START-STOP",Tipo = "Nafta, Diesel", Seleccion = "No", Descripcion = "", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "SPEED-LIM",Tipo = "Nafta, Diesel", Seleccion = "No", Descripcion = "", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "POP N BANG",Tipo = "Nafta", Seleccion = "No", Descripcion = "", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "LAUNCH CONTROL",Tipo = "Nafta, Diesel", Seleccion = "No", Descripcion = "", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "IMMO",Tipo = "Nafta, Diesel", Seleccion = "No", Descripcion = "Desactivar el sistema antiarranque con llave", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "COLD START HEATING",Tipo = "Nafta", Seleccion = "No" ,Descripcion = "Desactiva arranque en frio", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "EXHAUST FLAP",Tipo = "Nafta", Seleccion = "No", Descripcion = "Desactiva Flap Escape", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "GPF-OFF",Tipo = "Nafta", Seleccion = "No",Descripcion = "Anulacion sistema OPF GPF (Filtro de Particulas Otto)", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "SECOND AIR INJ",Tipo = "Nafta", Seleccion = "No",Descripcion = "Desactiva inyeccion de aire secundario", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "THROTTLE BODY",Tipo = "Diesel", Seleccion = "No",Descripcion = "Desactiva los DTC de la mariposa de pare", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "HARD-CUT",Tipo = "Diesel", Seleccion = "No",Descripcion = "Corte final tipo PopCorn", Costo = 0, Options = new List<string> { "No", "Si" } },
-        new Modificacion { Nombre = "PEDAL-BOX",Tipo = "Diesel", Seleccion = "No",Descripcion = "Aumenta mas agresivamente la respuesta del acelerador electronico", Costo = 0, Options = new List<string> { "No", "Si" } },
-    };
+    private int TotalCost { get; set; }
+    ModificacionesContainer modificacionescontainer;
 
-    public class Modificacion
+    //method when page is loaded
+    protected override void OnInitialized()
     {
-        public string Nombre { get; set; }
-        public string Tipo { get; set; }
-        public string Seleccion { get; set; }
-        public int Costo { get; set; }
-        public List<string> Options { get; set; } = new List<string>();
-        public string Descripcion { get; set; }
-
+        modificacionescontainer = new ModificacionesContainer();
     }
+
 
     private void OnModificacionChanged(Modificacion modificacion, string seleccion)
     {
         modificacion.Seleccion = seleccion;
-        actualizarcostos();
-        //update the view
-        //StateHasChanged();
-
-
+        TotalCost = modificacionescontainer.changes(SelectedVehicle);
+        StateHasChanged();
     }
 
-    private void actualizarcostos()
+
+    private void OnStageChanged(string seleccion)
     {
-        bool stage = false;
-        bool stage2 = false;
-        bool dpf = false;
-        bool scr = false;
-        int job2 = 0;
-        int job4 = 0;
-
-        foreach (var mod in Modificaciones_)
-        {
-            if (mod.Nombre == "STAGE")
-            {
-                switch (mod.Seleccion)
-                {
-                    case "Stage 1":
-                        mod.Costo = SelectedVehicle.D_STG1;
-                        stage = true;
-                        break;
-                    case "Stage 1+":
-                        mod.Costo = (int)(SelectedVehicle.D_STG1 * 1.2);
-                        stage = true;
-                        break;
-                    case "Stage 2":
-                        mod.Costo = SelectedVehicle.D_STG2;
-                        stage2 = true;
-                        break;
-                    case "Stage 2+":
-                        mod.Costo = (int)(SelectedVehicle.D_STG2 * 1.2);
-                        stage2 = true;
-                        break;
-                    case "Stage 3":
-                        mod.Costo = (int)(SelectedVehicle.D_STG2 * 1.5);
-                        stage2 = true;
-                        break;
-                    case "Volver Stock":
-                        mod.Costo = (int)(SelectedVehicle.D_STG1 * 0.5);
-                        stage = true;
-                        break;
-                    default:
-                        mod.Costo = 0;
-                        stage = false;
-                        stage2 = false;
-                        break;
-                }
-            }
-
-            if (mod.Nombre == "DECAT")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-
-                }
-            }
-
-            if (mod.Nombre == "EGR-OFF")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "DPF-OFF")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    dpf = true;
-
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J4;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J4;
-                    }
-
-
-                }
-                else
-                {
-                    dpf = false;
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "SCR-OFF")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    scr = true;
-                    if (dpf == false)
-                    {
-                        if (stage || stage2)
-                        {
-                            mod.Costo = SelectedVehicle.D_COMBO_J4;
-                        }
-                        else
-                        {
-                            mod.Costo = SelectedVehicle.D_ONLY_J4;
-                        }
-                    }
-                    else
-                    {
-                        mod.Costo = 0;
-                    }
-                }
-                else
-                {
-                    scr = false;
-                    mod.Costo = 0;
-                }
-
-            }
-
-            if (mod.Nombre == "DTC-OFF")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "FLAPS-OFF")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "MAF DELETE")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "START-STOP")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "SPEED-LIM")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "POP N BANG")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "LAUNCH CONTROL")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "IMMO")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "COLD START HEATING")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "EXHAUST FLAP")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "GPF-OFF")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "SECOND AIR INJ")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "THROTTLE BODY")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "HARD-CUT")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-            }
-
-            if (mod.Nombre == "PEDAL-BOX")
-            {
-                if (mod.Seleccion.Equals("Si"))
-                {
-                    if (stage || stage2)
-                    {
-                        mod.Costo = SelectedVehicle.D_COMBO_J2;
-                    }
-                    else
-                    {
-                        mod.Costo = SelectedVehicle.D_ONLY_J2;
-                    }
-                }
-                else
-                {
-                    mod.Costo = 0;
-                }
-
-
-            }
-
-
-
-        }
-
-        // Calculate the total cost
-        TotalCost = Modificaciones_.Sum(m => m.Costo);
-
+        modificacionescontainer.StageInstance.Seleccion = seleccion;
+        TotalCost = modificacionescontainer.changes(SelectedVehicle);
+        StateHasChanged();
 
     }
 
-
-    private int TotalCost { get; set; }
+    
 }

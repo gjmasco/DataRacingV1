@@ -1,0 +1,43 @@
+﻿@page "/files"
+@using DataRacingV1.Components.Tickets
+@inject TicketService TicketService
+@inject NavigationManager NavigationManager
+
+<h3>Tickets</h3>
+
+<MudTable Items="tickets" Hover="true" Striped="true">
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>Client Id</MudTh>
+        <MudTh>Status</MudTh>
+        <MudTh>Cost</MudTh>
+        <MudTh>Actions</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Id">@context.Id</MudTd>
+        <MudTd DataLabel="Client Id">@context.ClientId</MudTd>
+        <MudTd DataLabel="Status">@context.Status</MudTd>
+        <MudTd DataLabel="Cost">@context.Cost</MudTd>
+        <MudTd DataLabel="Actions">
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => ViewTicket(context.Id))">View</MudButton>
+        </MudTd>
+    </RowTemplate>
+</MudTable>
+
+@code {
+    private List<TicketEntity> tickets;
+
+    protected override async Task OnInitializedAsync()
+    {
+        tickets = await TicketService.GetTicketsByUserAsync();
+    }
+
+    private void ViewTicket(int ticketId)
+    {
+        NavigationManager.NavigateTo($"/ticket/{ticketId}");
+    }
+
+
+}
+
+
