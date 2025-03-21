@@ -61,7 +61,7 @@
 @code {
     [Parameter]
     public UploadedFileInfo UploadedFile { get; set; }
-
+    private bool _isUploading = false;
     private MudForm form;
     private FileModelFluentValidator ValidationRules = new();
 
@@ -69,14 +69,22 @@
     {
         if (e.File != null)
         {
+            _isUploading = true;
             using (var memoryStream = new MemoryStream())
             {
-                await e.File.OpenReadStream().CopyToAsync(memoryStream);
-                UploadedFile.FileContent = memoryStream.ToArray();
-                UploadedFile.FileName = e.File.Name;
+                // Specify a larger maximum file size (e.g., 10 MB)
+                var maxFileSize = 10 * 1024 * 1024;
+
+                using (var stream = e.File.OpenReadStream(maxFileSize))
+                {
+                    await stream.CopyToAsync(memoryStream);
+                    UploadedFile.FileContent = memoryStream.ToArray();
+                    UploadedFile.FileName = e.File.Name;
+                }
             }
             Snackbar.Configuration.PositionClass = Defaults.Classes.Position.TopCenter;
             Snackbar.Add($"This file has the extension {UploadedFile.FileName.Split(".").Last()}", Severity.Info);
+            _isUploading = false;
         }
     }
 

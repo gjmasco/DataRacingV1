@@ -2,6 +2,7 @@
 @using DataRacingV1.Components.Tickets
 @inject TicketService TicketService
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
 @code {
     [Parameter]
     public int ticketId { get; set; }
@@ -11,6 +12,15 @@
     protected override async Task OnInitializedAsync()
     {
         ticket = await TicketService.GetTicketByIdAsync(ticketId);
+    }
+
+    private async Task DownloadFile(string fileName, string fileContent)
+    {
+        if (!string.IsNullOrEmpty(fileContent))
+        {
+            var bytes = Convert.FromBase64String(fileContent);
+            await JSRuntime.InvokeVoidAsync("downloadFile", fileName, bytes);
+        }
     }
 }
 
@@ -40,14 +50,18 @@
         <MudText Typo="Typo.h6">Info DTCs: @ticket.InfoDTCs</MudText>
         <MudText Typo="Typo.h6">File Equipo: @ticket.FileEquipo</MudText>
         <MudText Typo="Typo.h6">File Archivo: @ticket.FileArchivo</MudText>
+
+        @if (!string.IsNullOrEmpty(ticket.FileEquipo))
+        {
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => DownloadFile("Equipo.txt", ticket.FileEquipo))">Download Equipo File</MudButton>
+        }
+        @if (!string.IsNullOrEmpty(ticket.FileArchivo))
+        {
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => DownloadFile("Archivo.txt", ticket.FileArchivo))">Download Archivo File</MudButton>
+        }
     </MudPaper>
 }
 else
 {
     <MudText Typo="Typo.h6">Loading...</MudText>
-}
-
-
-
-
-
+}}

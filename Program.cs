@@ -15,7 +15,27 @@ var builder = WebApplication.CreateBuilder(args);
 // Add MudBlazor services
 builder.Services.AddMudServices();
 
-// Add services to the container.
+// MODIFICADO LOS SERVICIOS PARA AARCHIVOS DE HASTA 10MB
+
+builder.Services.AddSignalR(options =>
+{
+    options.MaximumReceiveMessageSize = 10 * 1024 * 1024; // 10 MB
+});
+
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor(options =>
+{
+    // No es necesario MaximumReceiveMessageSize aquí
+    options.DetailedErrors = true;
+});
+
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Limits.MaxRequestBodySize = 10 * 1024 * 1024; // 10 MB
+});
+
+
+
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 

@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\uploads\\094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.txt",
+      "PackagePath": "staticwebassets\\uploads\\094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.txt"
+    },
+    {
+      "Id": "D:\\Google Drive\\VISUAL STUDIO\\Mudblazor\\DataRacingV1\\wwwroot\\uploads\\fc5f929d-7eae-4e96-bd29-8ebb81556032_[HIACE 28D LIM 100KMH  - 89663-26U30-A] {F20002}.ORI",
+      "PackagePath": "staticwebassets\\uploads\\fc5f929d-7eae-4e96-bd29-8ebb81556032_[HIACE 28D LIM 100KMH  - 89663-26U30-A] {F20002}.ORI"
+    },
+    {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.DataRacingV1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

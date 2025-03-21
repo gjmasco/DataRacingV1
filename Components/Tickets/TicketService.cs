@@ -19,13 +19,102 @@ public class TicketService
 
     public async Task<List<TicketEntity>> GetTicketsAsync()
     {
-        return await _context.Tickets.ToListAsync();
+        var tickets = new List<TicketEntity>();
+
+        using (var command = _context.Database.GetDbConnection().CreateCommand())
+        {
+            command.CommandText = "SELECT * FROM Tickets"; // Consulta SQL (ajusta según tu necesidad)
+            await _context.Database.OpenConnectionAsync();
+
+            using (var reader = await command.ExecuteReaderAsync())
+            {
+                while (await reader.ReadAsync())
+                {
+                    var ticket = new TicketEntity
+                    {
+                        Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                        ClientId = reader["ClientId"] == DBNull.Value ? null : reader["ClientId"].ToString(),
+                        EditorId = reader["EditorId"] == DBNull.Value ? null : reader["EditorId"].ToString(),
+                        Status = reader["Status"] == DBNull.Value ? null : reader["Status"].ToString(),
+                        Cost = reader["Cost"] == DBNull.Value ? null : reader.GetInt32(reader.GetOrdinal("Cost")),
+                        VehiculoTipo = reader["VehiculoTipo"].ToString(),
+                        VehiculoFabricante = reader["VehiculoFabricante"].ToString(),
+                        VehiculoModelo = reader["VehiculoModelo"].ToString(),
+                        VehiculoVariante = reader["VehiculoVariante"].ToString(),
+                        VehiculoPotencia = reader["VehiculoPotencia"] == DBNull.Value ? null : Convert.ToSingle(reader["VehiculoPotencia"]),
+                        VehiculoManual = reader["VehiculoManual"] == DBNull.Value ? null : Convert.ToBoolean(reader["VehiculoManual"]),
+                        InfoDueno = reader["InfoDueno"] == DBNull.Value ? null : reader["InfoDueno"].ToString(),
+                        InfoKm = reader["InfoKm"] == DBNull.Value ? null : reader["InfoKm"] is DBNull ? null : Convert.ToInt32(reader["InfoKm"]),
+                        InfoDominio = reader["InfoDominio"] == DBNull.Value ? null : reader["InfoDominio"].ToString(),
+                        InfoCombustible = reader["InfoCombustible"] == DBNull.Value ? null : reader["InfoCombustible"].ToString(),
+                        InfoTransmision = reader["InfoTransmision"] == DBNull.Value ? null : reader["InfoTransmision"].ToString(),
+                        InfoAdmision = reader["InfoAdmision"] == DBNull.Value ? null : reader["InfoAdmision"].ToString(),
+                        InfoEscape = reader["InfoEscape"] == DBNull.Value ? null : reader["InfoEscape"].ToString(),
+                        InfoComentarios = reader["InfoComentarios"] == DBNull.Value ? null : reader["InfoComentarios"].ToString(),
+                        InfoDTCs = reader["InfoDTCs"] == DBNull.Value ? null : reader["InfoDTCs"].ToString(),
+                        FileEquipo = reader["FileEquipo"] == DBNull.Value ? null : reader["FileEquipo"].ToString(),
+                        FileArchivo = reader["FileArchivo"] == DBNull.Value ? null : reader["FileArchivo"].ToString()
+
+                    };
+                    tickets.Add(ticket);
+                }
+            }
+            await _context.Database.CloseConnectionAsync();
+        }
+        return tickets;
     }
 
     public async Task<List<TicketEntity>> GetTicketsByUserAsync()
     {
         var user = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
-        return await _context.Tickets.Where(t => t.ClientId == user.Id).ToListAsync();
+        if (user == null)
+        {
+            return new List<TicketEntity>(); // Retorna una lista vacía si el usuario no está autenticado
+        }
+
+        var tickets = new List<TicketEntity>();
+
+        using (var command = _context.Database.GetDbConnection().CreateCommand())
+        {
+            command.CommandText = "SELECT * FROM Tickets WHERE ClientId = @ClientId";
+            command.Parameters.Add(new Microsoft.Data.SqlClient.SqlParameter("@ClientId", user.Id));
+            await _context.Database.OpenConnectionAsync();
+
+            using (var reader = await command.ExecuteReaderAsync())
+            {
+                while (await reader.ReadAsync())
+                {
+                    var ticket = new TicketEntity
+                    {
+                        Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                        ClientId = reader["ClientId"] == DBNull.Value ? null : reader["ClientId"].ToString(),
+                        EditorId = reader["EditorId"] == DBNull.Value ? null : reader["EditorId"].ToString(),
+                        Status = reader["Status"] == DBNull.Value ? null : reader["Status"].ToString(),
+                        Cost = reader["Cost"] == DBNull.Value ? null : reader.GetInt32(reader.GetOrdinal("Cost")),
+                        VehiculoTipo = reader["VehiculoTipo"].ToString(),
+                        VehiculoFabricante = reader["VehiculoFabricante"].ToString(),
+                        VehiculoModelo = reader["VehiculoModelo"].ToString(),
+                        VehiculoVariante = reader["VehiculoVariante"].ToString(),
+                        VehiculoPotencia = reader["VehiculoPotencia"] == DBNull.Value ? null : Convert.ToSingle(reader["VehiculoPotencia"]),
+                        VehiculoManual = reader["VehiculoManual"] == DBNull.Value ? null : Convert.ToBoolean(reader["VehiculoManual"]),
+                        InfoDueno = reader["InfoDueno"] == DBNull.Value ? null : reader["InfoDueno"].ToString(),
+                        InfoKm = reader["InfoKm"] == DBNull.Value ? null : reader["InfoKm"] is DBNull ? null : Convert.ToInt32(reader["InfoKm"]),
+                        InfoDominio = reader["InfoDominio"] == DBNull.Value ? null : reader["InfoDominio"].ToString(),
+                        InfoCombustible = reader["InfoCombustible"] == DBNull.Value ? null : reader["InfoCombustible"].ToString(),
+                        InfoTransmision = reader["InfoTransmision"] == DBNull.Value ? null : reader["InfoTransmision"].ToString(),
+                        InfoAdmision = reader["InfoAdmision"] == DBNull.Value ? null : reader["InfoAdmision"].ToString(),
+                        InfoEscape = reader["InfoEscape"] == DBNull.Value ? null : reader["InfoEscape"].ToString(),
+                        InfoComentarios = reader["InfoComentarios"] == DBNull.Value ? null : reader["InfoComentarios"].ToString(),
+                        InfoDTCs = reader["InfoDTCs"] == DBNull.Value ? null : reader["InfoDTCs"].ToString(),
+                        FileEquipo = reader["FileEquipo"] == DBNull.Value ? null : reader["FileEquipo"].ToString(),
+                        FileArchivo = reader["FileArchivo"] == DBNull.Value ? null : reader["FileArchivo"].ToString()
+                    };
+                    tickets.Add(ticket);
+                }
+            }
+            await _context.Database.CloseConnectionAsync();
+        }
+        return tickets;
     }
 
 
@@ -33,7 +122,47 @@ public class TicketService
 
     public async Task<TicketEntity> GetTicketByIdAsync(int id)
     {
-        return await _context.Tickets.FindAsync(id);
+        using (var command = _context.Database.GetDbConnection().CreateCommand())
+        {
+            command.CommandText = "SELECT * FROM Tickets WHERE Id = @Id";
+            command.Parameters.Add(new Microsoft.Data.SqlClient.SqlParameter("@Id", id));
+            await _context.Database.OpenConnectionAsync();
+
+            using (var reader = await command.ExecuteReaderAsync())
+            {
+                if (await reader.ReadAsync())
+                {
+                    var ticket = new TicketEntity
+                    {
+                        Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                        ClientId = reader["ClientId"] == DBNull.Value ? null : reader["ClientId"].ToString(),
+                        EditorId = reader["EditorId"] == DBNull.Value ? null : reader["EditorId"].ToString(),
+                        Status = reader["Status"] == DBNull.Value ? null : reader["Status"].ToString(),
+                        Cost = reader["Cost"] == DBNull.Value ? null : reader.GetInt32(reader.GetOrdinal("Cost")),
+                        VehiculoTipo = reader["VehiculoTipo"].ToString(),
+                        VehiculoFabricante = reader["VehiculoFabricante"].ToString(),
+                        VehiculoModelo = reader["VehiculoModelo"].ToString(),
+                        VehiculoVariante = reader["VehiculoVariante"].ToString(),
+                        VehiculoPotencia = reader["VehiculoPotencia"] == DBNull.Value ? null : Convert.ToSingle(reader["VehiculoPotencia"]),
+                        VehiculoManual = reader["VehiculoManual"] == DBNull.Value ? null : Convert.ToBoolean(reader["VehiculoManual"]),
+                        InfoDueno = reader["InfoDueno"] == DBNull.Value ? null : reader["InfoDueno"].ToString(),
+                        InfoKm = reader["InfoKm"] == DBNull.Value ? null : reader["InfoKm"] is DBNull ? null : Convert.ToInt32(reader["InfoKm"]),
+                        InfoDominio = reader["InfoDominio"] == DBNull.Value ? null : reader["InfoDominio"].ToString(),
+                        InfoCombustible = reader["InfoCombustible"] == DBNull.Value ? null : reader["InfoCombustible"].ToString(),
+                        InfoTransmision = reader["InfoTransmision"] == DBNull.Value ? null : reader["InfoTransmision"].ToString(),
+                        InfoAdmision = reader["InfoAdmision"] == DBNull.Value ? null : reader["InfoAdmision"].ToString(),
+                        InfoEscape = reader["InfoEscape"] == DBNull.Value ? null : reader["InfoEscape"].ToString(),
+                        InfoComentarios = reader["InfoComentarios"] == DBNull.Value ? null : reader["InfoComentarios"].ToString(),
+                        InfoDTCs = reader["InfoDTCs"] == DBNull.Value ? null : reader["InfoDTCs"].ToString(),
+                        FileEquipo = reader["FileEquipo"] == DBNull.Value ? null : reader["FileEquipo"].ToString(),
+                        FileArchivo = reader["FileArchivo"] == DBNull.Value ? null : reader["FileArchivo"].ToString()
+                    };
+                    return ticket;
+                }
+            }
+            await _context.Database.CloseConnectionAsync();
+        }
+        return null; // Retorna null si no se encuentra el ticket
     }
 
     public async Task AddTicketAsync(Ticket ticket)
@@ -44,22 +173,31 @@ public class TicketService
             EditorId = "",
             Status = "New",
             Cost = ticket.Cost,
-            VehiculoTipo = ticket.VehicleDetails.Tipo,
-            VehiculoFabricante = ticket.VehicleDetails.Fabricante,
-            VehiculoModelo = ticket.VehicleDetails.Modelo,
-            VehiculoVariante = ticket.VehicleDetails.Variante,
-            /*VehiculoPotencia = ticket.VehicleDetails.Potencia,
+
+            VehiculoTipo = ticket.selectedVehicle.TIPO,
+            VehiculoFabricante = ticket.selectedVehicle.FABRICANTE,
+            VehiculoModelo = ticket.selectedVehicle.MODELO,
+            VehiculoVariante = ticket.selectedVehicle.VARIANTE,
+
             VehiculoManual = ticket.VehicleDetails.Manual,
+            VehiculoPotencia = ticket.selectedVehicle.ORI,
+
+
             InfoDueno = ticket.VehicleInfo.Dueno,
+            InfoKm = ticket.VehicleInfo.Km,
             InfoDominio = ticket.VehicleInfo.Dominio,
             InfoCombustible = ticket.VehicleInfo.Combustible,
             InfoTransmision = ticket.VehicleInfo.Transmision,
             InfoAdmision = ticket.VehicleInfo.Admision,
             InfoEscape = ticket.VehicleInfo.Escape,
             InfoComentarios = ticket.VehicleInfo.Comentarios,
+
+            //FALTA RESOLVER EL TEMA DE DTCS!!!
+
+            //OriginalFile = file,
             FileEquipo = ticket.UploadedFile.Equipo,
-            FileArchivo = ticket.UploadedFile.Archivo,*/
-            
+            FileArchivo = ticket.UploadedFile.Archivo
+
         };
 
         _context.Tickets.Add(ticketEntity);

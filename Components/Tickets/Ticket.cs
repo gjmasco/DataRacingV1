@@ -40,11 +40,12 @@ namespace DataRacingV1.Components.Tickets
         public string VehiculoFabricante { get; set; }
         public string VehiculoModelo { get; set; }
         public string VehiculoVariante { get; set; }
-        public int? VehiculoPotencia { get; set; }
+
+        public float? VehiculoPotencia { get; set; }
         public bool?  VehiculoManual { get; set; }
         
         public string? InfoDueno { get; set; }
-        public string? InfoKm { get; set; }
+        public int? InfoKm { get; set; }
         public string? InfoDominio { get; set; }
         public string? InfoCombustible { get; set; }
         public string? InfoTransmision { get; set; }

@@ -6,7 +6,7 @@
         public string Fabricante { get; set; }
         public string Modelo { get; set; }
         public string Variante { get; set; }
-        public int Potencia { get; set; }
+        public float Potencia { get; set; }
         public bool Manual { get; set; }
     }
 

@@ -1,8 +1,11 @@
 D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\wwwroot\Precios\dtcs.txt
 D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\wwwroot\Precios\dtcsespanol.txt
+D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\wwwroot\uploads\094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.txt
 D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\wwwroot\favicon.ico
 D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\wwwroot\Precios\lista.csv
 wwwroot\favicon.ico
 wwwroot\Precios\dtcs.txt
 wwwroot\Precios\dtcsespanol.txt
 wwwroot\Precios\lista.csv
+wwwroot\uploads\094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.txt
+wwwroot\uploads\fc5f929d-7eae-4e96-bd29-8ebb81556032_[HIACE 28D LIM 100KMH  - 89663-26U30-A] {F20002}.ORI
