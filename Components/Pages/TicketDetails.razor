@@ -1,67 +1,215 @@
 ﻿@page "/ticket/{ticketId:int}"
 @using DataRacingV1.Components.Tickets
+@using YourNamespace.Models
 @inject TicketService TicketService
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
+
+<MudPaper Class="pa-6 mx-auto my-4" Style="max-width:800px;">
+    @if (ticket != null)
+    {
+        <MudGrid>
+            <MudItem xs="8">
+                <MudText Typo="Typo.h5">Ticket Details</MudText>
+            </MudItem>
+            <MudItem xs="4" Class="d-flex justify-end align-items-center">
+                <MudChip T="string" Color="Color.Info" Variant="Variant.Filled" Class="ma-2">@ticket.Status</MudChip>
+            </MudItem>
+        </MudGrid>
+
+        <MudDivider Class="mb-4" />
+
+        <!-- Ticket Information -->
+        <MudGrid GutterSize="3">
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Ticket ID:</strong> @ticket.Id</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Client ID:</strong> @ticket.ClientId</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Editor ID:</strong> @ticket.EditorId</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Cost:</strong> @ticket.Cost</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Vehicle Type:</strong> @ticket.VehiculoTipo</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Fabricante:</strong> @ticket.VehiculoFabricante</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Modelo:</strong> @ticket.VehiculoModelo</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Variante:</strong> @ticket.VehiculoVariante</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Potencia:</strong> @ticket.VehiculoPotencia</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Manual:</strong> @(ticket.VehiculoManual == true ? "Yes" : "No")</MudText>
+            </MudItem>
+            <MudItem xs="12">
+                <MudText Typo="Typo.subtitle1"><strong>Owner Info:</strong> @ticket.InfoDueno</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Km:</strong> @ticket.InfoKm</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Dominio:</strong> @ticket.InfoDominio</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Combustible:</strong> @ticket.InfoCombustible</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Transmisión:</strong> @ticket.InfoTransmision</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Admision:</strong> @ticket.InfoAdmision</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.subtitle1"><strong>Escape:</strong> @ticket.InfoEscape</MudText>
+            </MudItem>
+            <MudItem xs="12">
+                <MudText Typo="Typo.subtitle1"><strong>Comentarios:</strong> @ticket.InfoComentarios</MudText>
+            </MudItem>
+            <MudItem xs="12">
+                <MudText Typo="Typo.subtitle1"><strong>DTCs:</strong> @ticket.InfoDTCs</MudText>
+            </MudItem>
+        </MudGrid>
+
+        <!-- Files Section -->
+        <MudText Typo="Typo.h6" Class="mt-6 mb-2">Files</MudText>
+        <MudPaper Class="pa-4" Elevation="1">
+            @if (AllFiles != null && AllFiles.Any())
+            {
+                <MudTable Items="AllFiles" Hover="true" Striped="true">
+                    <HeaderContent>
+                        <MudTh>File Name</MudTh>
+                        <MudTh>Comment</MudTh>
+                        <MudTh>User ID</MudTh>
+                        <MudTh>Created At</MudTh>
+                        <MudTh>Actions</MudTh>
+                    </HeaderContent>
+                    <RowTemplate Context="file">
+                        <MudTd>@file.Name</MudTd>
+                        <MudTd>@file.Comment</MudTd>
+                        <MudTd>@file.UserId</MudTd>
+                        <MudTd>@file.CreatedAt.ToString("g")</MudTd>
+                        <MudTd>
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => DownloadFile(file))">
+                                Download
+                            </MudButton>
+                        </MudTd>
+                    </RowTemplate>
+                </MudTable>
+            }
+            else
+            {
+                <MudText Typo="Typo.subtitle1">No files available.</MudText>
+            }
+        </MudPaper>
+    }
+    else
+    {
+        <MudText Typo="Typo.h6">Loading...</MudText>
+    }
+</MudPaper>
+
 @code {
     [Parameter]
     public int ticketId { get; set; }
 
     private TicketEntity ticket;
+    private List<FileDisplayInfo> AllFiles { get; set; } = new List<FileDisplayInfo>();
 
     protected override async Task OnInitializedAsync()
     {
         ticket = await TicketService.GetTicketByIdAsync(ticketId);
+        BuildFilesList();
     }
 
-    private async Task DownloadFile(string fileName, string fileContent)
+    private void BuildFilesList()
     {
-        if (!string.IsNullOrEmpty(fileContent))
+        if (!string.IsNullOrEmpty(ticket.FileEquipo))
         {
-            var bytes = Convert.FromBase64String(fileContent);
-            await JSRuntime.InvokeVoidAsync("downloadFile", fileName, bytes);
+            AllFiles.Add(new FileDisplayInfo
+                {
+                    Name = "Equipo.txt",
+                    Comment = string.Empty,
+                    UserId = ticket.ClientId,
+                    CreatedAt = DateTime.MinValue,
+                    FileContent = ticket.FileEquipo,
+                    Path = null
+                });
+        }
+        if (!string.IsNullOrEmpty(ticket.FileArchivo))
+        {
+            AllFiles.Add(new FileDisplayInfo
+                {
+                    Name = "Archivo.txt",
+                    Comment = string.Empty,
+                    UserId = ticket.ClientId,
+                    CreatedAt = DateTime.MinValue,
+                    FileContent = ticket.FileArchivo,
+                    Path = null
+                });
+        }
+
+        if (ticket.OriginalFile != null)
+        {
+            AllFiles.Add(new FileDisplayInfo
+                {
+                    Name = ticket.OriginalFile.Name,
+                    Comment = ticket.OriginalFile.Comment,
+                    UserId = ticket.OriginalFile.UserId,
+                    CreatedAt = ticket.OriginalFile.CreatedAt,
+                    FileContent = null,
+                    Path = ticket.OriginalFile.Path
+                });
+        }
+        if (ticket.UploadedFiles != null && ticket.UploadedFiles.Any())
+        {
+            foreach (var file in ticket.UploadedFiles)
+            {
+                if (file != null)
+                {
+                    AllFiles.Add(new FileDisplayInfo
+                        {
+                            Name = file.Name,
+                            Comment = file.Comment,
+                            UserId = file.UserId,
+                            CreatedAt = file.CreatedAt,
+                            FileContent = null,
+                            Path = file.Path
+                        });
+                }
+            }
         }
     }
-}
 
-<h3>Ticket Details</h3>
-
-@if (ticket != null)
-{
-    <MudPaper Class="pa-4">
-        <MudText Typo="Typo.h6">Ticket Id: @ticket.Id</MudText>
-        <MudText Typo="Typo.h6">Client Id: @ticket.ClientId</MudText>
-        <MudText Typo="Typo.h6">Status: @ticket.Status</MudText>
-        <MudText Typo="Typo.h6">Cost: @ticket.Cost</MudText>
-        <MudText Typo="Typo.h6">Vehiculo Tipo: @ticket.VehiculoTipo</MudText>
-        <MudText Typo="Typo.h6">Vehiculo Fabricante: @ticket.VehiculoFabricante</MudText>
-        <MudText Typo="Typo.h6">Vehiculo Modelo: @ticket.VehiculoModelo</MudText>
-        <MudText Typo="Typo.h6">Vehiculo Variante: @ticket.VehiculoVariante</MudText>
-        <MudText Typo="Typo.h6">Vehiculo Potencia: @ticket.VehiculoPotencia</MudText>
-        <MudText Typo="Typo.h6">Vehiculo Manual: @ticket.VehiculoManual</MudText>
-        <MudText Typo="Typo.h6">Info Dueno: @ticket.InfoDueno</MudText>
-        <MudText Typo="Typo.h6">Info Km: @ticket.InfoKm</MudText>
-        <MudText Typo="Typo.h6">Info Dominio: @ticket.InfoDominio</MudText>
-        <MudText Typo="Typo.h6">Info Combustible: @ticket.InfoCombustible</MudText>
-        <MudText Typo="Typo.h6">Info Transmision: @ticket.InfoTransmision</MudText>
-        <MudText Typo="Typo.h6">Info Admision: @ticket.InfoAdmision</MudText>
-        <MudText Typo="Typo.h6">Info Escape: @ticket.InfoEscape</MudText>
-        <MudText Typo="Typo.h6">Info Comentarios: @ticket.InfoComentarios</MudText>
-        <MudText Typo="Typo.h6">Info DTCs: @ticket.InfoDTCs</MudText>
-        <MudText Typo="Typo.h6">File Equipo: @ticket.FileEquipo</MudText>
-        <MudText Typo="Typo.h6">File Archivo: @ticket.FileArchivo</MudText>
-
-        @if (!string.IsNullOrEmpty(ticket.FileEquipo))
+    private async Task DownloadFile(FileDisplayInfo file)
+    {
+        if (!string.IsNullOrEmpty(file.FileContent))
         {
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => DownloadFile("Equipo.txt", ticket.FileEquipo))">Download Equipo File</MudButton>
+            var bytes = Convert.FromBase64String(file.FileContent);
+            await JSRuntime.InvokeVoidAsync("downloadFile", file.Name, bytes);
         }
-        @if (!string.IsNullOrEmpty(ticket.FileArchivo))
+        else if (!string.IsNullOrEmpty(file.Path))
         {
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => DownloadFile("Archivo.txt", ticket.FileArchivo))">Download Archivo File</MudButton>
+            await JSRuntime.InvokeVoidAsync("downloadFileFromUrl", file.Path, file.Name);
         }
-    </MudPaper>
+    }
+
+    public class FileDisplayInfo
+    {
+        public string Name { get; set; }
+        public string Comment { get; set; }
+        public string UserId { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public string FileContent { get; set; }
+        public string Path { get; set; }
+    }
 }
-else
-{
-    <MudText Typo="Typo.h6">Loading...</MudText>
-}}

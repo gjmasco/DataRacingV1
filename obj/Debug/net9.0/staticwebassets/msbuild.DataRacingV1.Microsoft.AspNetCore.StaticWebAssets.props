@@ -72,41 +72,5 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Precios\lista.csv'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.txt'))">
-      <SourceType>Package</SourceType>
-      <SourceId>DataRacingV1</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/DataRacingV1</BasePath>
-      <RelativePath>uploads/094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.txt</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>d6qzqzmou8</Fingerprint>
-      <Integrity>RZV3jG5dJqU8z63U3xeofnnxQNaJvS/gspdcbEWqU98=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.txt'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\fc5f929d-7eae-4e96-bd29-8ebb81556032_[HIACE 28D LIM 100KMH  - 89663-26U30-A] {F20002}.ORI'))">
-      <SourceType>Package</SourceType>
-      <SourceId>DataRacingV1</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/DataRacingV1</BasePath>
-      <RelativePath>uploads/fc5f929d-7eae-4e96-bd29-8ebb81556032_[HIACE 28D LIM 100KMH  - 89663-26U30-A] {F20002}.ORI</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>d0gsnqrc9q</Fingerprint>
-      <Integrity>8/BG4WIsycyIBQKo8P67bY/fjbkAOJN3RwBSycek1ys=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\fc5f929d-7eae-4e96-bd29-8ebb81556032_[HIACE 28D LIM 100KMH  - 89663-26U30-A] {F20002}.ORI'))</OriginalItemSpec>
-    </StaticWebAsset>
   </ItemGroup>
 </Project>

@@ -48,29 +48,5 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"v7b9mxzezd"},{"Name":"integrity","Value":"sha256-9bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU="},{"Name":"label","Value":"_content/DataRacingV1/Precios/lista.csv"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"204414"},{"Name":"Content-Type","Value":"text/csv"},{"Name":"ETag","Value":"\u00229bRYT8RklOWm1AwW0UfyxFBSMWZxugduHMnT2rPRoRU=\u0022"},{"Name":"Last-Modified","Value":"Sun, 23 Feb 2025 22:17:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DataRacingV1/uploads/094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.d6qzqzmou8.txt">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.txt'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"d6qzqzmou8"},{"Name":"integrity","Value":"sha256-RZV3jG5dJqU8z63U3xeofnnxQNaJvS/gspdcbEWqU98="},{"Name":"label","Value":"_content/DataRacingV1/uploads/094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.txt"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5130"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022RZV3jG5dJqU8z63U3xeofnnxQNaJvS/gspdcbEWqU98=\u0022"},{"Name":"Last-Modified","Value":"Tue, 18 Mar 2025 03:06:05 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DataRacingV1/uploads/094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.txt">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\094a836b-1f5c-4cad-8cfa-b3d957178247_submitfileuploadviejo.txt'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-RZV3jG5dJqU8z63U3xeofnnxQNaJvS/gspdcbEWqU98="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5130"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022RZV3jG5dJqU8z63U3xeofnnxQNaJvS/gspdcbEWqU98=\u0022"},{"Name":"Last-Modified","Value":"Tue, 18 Mar 2025 03:06:05 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DataRacingV1/uploads/fc5f929d-7eae-4e96-bd29-8ebb81556032_[HIACE 28D LIM 100KMH  - 89663-26U30-A] {F20002}.d0gsnqrc9q.ORI">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\fc5f929d-7eae-4e96-bd29-8ebb81556032_[HIACE 28D LIM 100KMH  - 89663-26U30-A] {F20002}.ORI'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"d0gsnqrc9q"},{"Name":"integrity","Value":"sha256-8/BG4WIsycyIBQKo8P67bY/fjbkAOJN3RwBSycek1ys="},{"Name":"label","Value":"_content/DataRacingV1/uploads/fc5f929d-7eae-4e96-bd29-8ebb81556032_[HIACE 28D LIM 100KMH  - 89663-26U30-A] {F20002}.ORI"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4194304"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u00228/BG4WIsycyIBQKo8P67bY/fjbkAOJN3RwBSycek1ys=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Mar 2025 23:27:45 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DataRacingV1/uploads/fc5f929d-7eae-4e96-bd29-8ebb81556032_[HIACE 28D LIM 100KMH  - 89663-26U30-A] {F20002}.ORI">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\fc5f929d-7eae-4e96-bd29-8ebb81556032_[HIACE 28D LIM 100KMH  - 89663-26U30-A] {F20002}.ORI'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-8/BG4WIsycyIBQKo8P67bY/fjbkAOJN3RwBSycek1ys="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4194304"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u00228/BG4WIsycyIBQKo8P67bY/fjbkAOJN3RwBSycek1ys=\u0022"},{"Name":"Last-Modified","Value":"Wed, 19 Mar 2025 23:27:45 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

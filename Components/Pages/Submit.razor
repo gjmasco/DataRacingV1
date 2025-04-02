@@ -384,7 +384,7 @@
             
 
             var uploadedFile = await UploadFileService.UploadFileAsync(ticket.UploadedFile);
-            await TicketService.AddTicketAsync(ticket);
+            await TicketService.AddTicketAsync(ticket, uploadedFile);
             Snackbar.Add("Ticket created successfully!", Severity.Success);
         }
         catch (Exception ex)

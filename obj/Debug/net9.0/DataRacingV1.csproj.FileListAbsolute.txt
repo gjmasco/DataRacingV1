@@ -186,4 +186,3 @@ D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\bin\Debug\net9.0\System.Tex
 D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\obj\Debug\net9.0\compressed\tzxjg6is5z-hmu6kx9mgf.gz
 D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\obj\Debug\net9.0\compressed\0wz98yz2xy-tspksaymx7.gz
 D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\obj\Debug\net9.0\DataRacingV1.sourcelink.json
-D:\Google Drive\VISUAL STUDIO\Mudblazor\DataRacingV1\obj\Debug\net9.0\compressed\sb2wrawvym-d6qzqzmou8.gz

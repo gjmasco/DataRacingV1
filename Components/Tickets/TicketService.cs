@@ -1,7 +1,10 @@
-﻿using DataRacingV1.Components.Tickets;
+﻿using DataRacingV1.Components.Pages;
+using DataRacingV1.Components.Tickets;
 using DataRacingV1.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
+using System;
 using YourNamespace.Models;
 
 public class TicketService
@@ -16,6 +19,47 @@ public class TicketService
         _userManager = userManager;
         _httpContextAccessor = httpContextAccessor;
     }
+
+
+
+
+    public async Task<List<TicketEntity>> SearchTicketsAsync(string searchString)
+    {
+        var allTickets = await GetTicketsAsync(); // Await the result
+
+        if (string.IsNullOrEmpty(searchString))
+        {
+            return allTickets;
+        }
+
+        return allTickets.Where(t =>
+            t.Id.ToString().Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
+            (t.ClientId?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.EditorId?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.Status?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.Cost?.ToString().Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.VehiculoTipo?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.VehiculoFabricante?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.VehiculoModelo?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.VehiculoVariante?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.VehiculoPotencia?.ToString().Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.VehiculoManual?.ToString().Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.InfoDueno?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.InfoKm?.ToString().Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.InfoDominio?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.InfoCombustible?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.InfoTransmision?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.InfoAdmision?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.InfoEscape?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.InfoComentarios?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.InfoDTCs?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.FileEquipo?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
+            (t.FileArchivo?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false)
+        ).ToList();
+    }
+
+
+
 
     public async Task<List<TicketEntity>> GetTicketsAsync()
     {
@@ -155,7 +199,8 @@ public class TicketService
                         InfoComentarios = reader["InfoComentarios"] == DBNull.Value ? null : reader["InfoComentarios"].ToString(),
                         InfoDTCs = reader["InfoDTCs"] == DBNull.Value ? null : reader["InfoDTCs"].ToString(),
                         FileEquipo = reader["FileEquipo"] == DBNull.Value ? null : reader["FileEquipo"].ToString(),
-                        FileArchivo = reader["FileArchivo"] == DBNull.Value ? null : reader["FileArchivo"].ToString()
+                        FileArchivo = reader["FileArchivo"] == DBNull.Value ? null : reader["FileArchivo"].ToString(),
+                        OriginalFile = reader["OriginalFile"] == DBNull.Value ? null : reader["OriginalFile"].ToString()
                     };
                     return ticket;
                 }
@@ -165,7 +210,7 @@ public class TicketService
         return null; // Retorna null si no se encuentra el ticket
     }
 
-    public async Task AddTicketAsync(Ticket ticket)
+    public async Task AddTicketAsync(Ticket ticket, UploadedFile file)
     {
         var ticketEntity = new TicketEntity
         {
@@ -194,7 +239,7 @@ public class TicketService
 
             //FALTA RESOLVER EL TEMA DE DTCS!!!
 
-            //OriginalFile = file,
+            OriginalFile = file,
             FileEquipo = ticket.UploadedFile.Equipo,
             FileArchivo = ticket.UploadedFile.Archivo
 

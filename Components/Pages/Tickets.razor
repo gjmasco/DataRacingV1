@@ -5,17 +5,17 @@
 
 <h3>Tickets</h3>
 
-<MudTable Items="@pagedTickets" Hover="true" Striped="true" TotalItems="@totalItems" ItemsPerPage="10" ServerData="@(new Func<MudBlazor.TableState, CancellationToken, Task<TableData<TicketEntity>>>(ServerReload))" MultiSelection="false">
+<MudTable @key="tableKey" Items="@pagedTickets" Hover="true" Striped="true" TotalItems="@totalItems" ItemsPerPage="10" ServerData="@(new Func<MudBlazor.TableState, CancellationToken, Task<TableData<TicketEntity>>>(ServerReload))" MultiSelection="false">
     <ToolBarContent>
         <MudTextField @bind-Value="searchString" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0" Immediate="true" @oninput="OnSearchInputChanged" @onkeydown="HandleKeyDown"></MudTextField>
     </ToolBarContent>
     <HeaderContent>
-        <MudTh Sortable="true" SortBy="SortBy.Id">Ticket #</MudTh>
-        <MudTh Sortable="true" SortBy="SortBy.VehiculoFabricante">Fabricante</MudTh>
-        <MudTh Sortable="true" SortBy="SortBy.VehiculoModelo">Modelo</MudTh>
-        <MudTh Sortable="true" SortBy="SortBy.VehiculoVariante">Variante</MudTh>
-        <MudTh Sortable="true" SortBy="SortBy.InfoDominio">Dominio</MudTh>
-        <MudTh Sortable="true" SortBy="SortBy.Status">Estado</MudTh>
+        <MudTh>Ticket #</MudTh>
+        <MudTh>Fabricante</MudTh>
+        <MudTh>Modelo</MudTh>
+        <MudTh>Variante</MudTh>
+        <MudTh>Dominio</MudTh>
+        <MudTh>Estado</MudTh>
         <MudTh>Actions</MudTh>
     </HeaderContent>
     <RowTemplate>
@@ -39,8 +39,9 @@
     private int totalItems;
     private int page = 1;
     private string searchString = "";
-    private string sortBy = "Id"; // Campo de ordenamiento inicial
-    private bool sortAscending = false; // Orden descendente inicial
+    private string tableKey = Guid.NewGuid().ToString(); // Unique key for MudTable
+
+    private MudBlazor.TableState _tableState = new MudBlazor.TableState { Page = 0, PageSize = 10 };
 
     protected override async Task OnInitializedAsync()
     {
@@ -49,46 +50,18 @@
 
     private async Task<TableData<TicketEntity>> ServerReload(MudBlazor.TableState args, CancellationToken cancellationToken)
     {
-        page = args.Page + 1; // MudTable uses 0-based page index
-        sortBy = args.SortLabel ?? "Id";
-        sortAscending = args.SortDirection == MudBlazor.SortDirection.Ascending;
+        _tableState = args;
+        page = args.Page + 1;
         await LoadData();
         return new TableData<TicketEntity>() { TotalItems = totalItems, Items = pagedTickets };
     }
 
     private async Task LoadData()
     {
-        var allTickets = await TicketService.GetTicketsAsync();
-
-        // Ordenamiento
-        if (sortBy == "Id")
-            allTickets = sortAscending ? allTickets.OrderBy(t => t.Id).ToList() : allTickets.OrderByDescending(t => t.Id).ToList();
-        else if (sortBy == "VehiculoFabricante")
-            allTickets = sortAscending ? allTickets.OrderBy(t => t.VehiculoFabricante).ToList() : allTickets.OrderByDescending(t => t.VehiculoFabricante).ToList();
-        else if (sortBy == "VehiculoModelo")
-            allTickets = sortAscending ? allTickets.OrderBy(t => t.VehiculoModelo).ToList() : allTickets.OrderByDescending(t => t.VehiculoModelo).ToList();
-        else if (sortBy == "VehiculoVariante")
-            allTickets = sortAscending ? allTickets.OrderBy(t => t.VehiculoVariante).ToList() : allTickets.OrderByDescending(t => t.VehiculoVariante).ToList();
-        else if (sortBy == "Status")
-            allTickets = sortAscending ? allTickets.OrderBy(t => t.Status).ToList() : allTickets.OrderByDescending(t => t.Status).ToList();
-
-        // Búsqueda
-        if (!string.IsNullOrEmpty(searchString))
-        {
-            allTickets = allTickets.Where(t =>
-                t.Id.ToString().Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
-                (t.VehiculoFabricante?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                (t.VehiculoModelo?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                (t.VehiculoVariante?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                (t.Status?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                // Agrega aquí más campos para buscar
-                (t.InfoDueno?.Contains(searchString, StringComparison.OrdinalIgnoreCase) ?? false)
-            // ...otros campos
-            ).ToList();
-        }
+        var allTickets = await TicketService.SearchTicketsAsync(searchString);
 
         totalItems = allTickets.Count;
-        pagedTickets = allTickets.Skip((page - 1) * 10).Take(10);
+        pagedTickets = allTickets.Skip((page - 1) * 10).Take(10).ToList();
     }
 
     private void ViewTicket(int ticketId)
@@ -99,6 +72,8 @@
     private void OnSearchInputChanged(ChangeEventArgs e)
     {
         searchString = e.Value.ToString();
+        page = 1;
+        tableKey = Guid.NewGuid().ToString(); // Change the key to force re-render
         LoadData();
     }
 
@@ -108,29 +83,5 @@
         {
             OnSearchInputChanged(new ChangeEventArgs { Value = searchString });
         }
-    }
-
-    // Métodos para el ordenamiento
-    private async Task SortByColumn(string sortBy)
-    {
-        if (this.sortBy == sortBy)
-            sortAscending = !sortAscending;
-        else
-        {
-            this.sortBy = sortBy;
-            sortAscending = true;
-        }
-
-        await LoadData();
-    }
-
-    // Clase interna para representar las columnas ordenables
-    private class SortBy
-    {
-        public static string Id = "Id";
-        public static string VehiculoFabricante = "VehiculoFabricante";
-        public static string VehiculoModelo = "VehiculoModelo";
-        public static string VehiculoVariante = "VehiculoVariante";
-        public static string Status = "Status";
     }
 }
